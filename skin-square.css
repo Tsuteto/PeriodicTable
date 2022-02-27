@@ -1,0 +1,187 @@
+:root {
+    --font-default: quicksand, "Arial Nova", sans-serif;
+    --bgcolor-alkali-metal: #ffbbaf;
+    --bgcolor-alkali-earth-metal: #ffd6a7;
+    --bgcolor-transition-metal: #96d2fa;
+    --bgcolor-other-metal: #aeb4ce;
+    --bgcolor-lanthanoid: #ffb9f0;
+    --bgcolor-actinoid: #d399f5;
+    --bgcolor-metalloid: #8ae6b8;
+
+    --bgcolor-other-nonmetal: #e4fa96;
+    --bgcolor-halogen: #96ebfa;
+    --bgcolor-noble-gas: #96b6fa;
+
+    --bgcolor-unknown: #ddd;
+
+    --text-color: white;
+
+    --column-gap: 0.5vmin;
+    --row-gap: 0.5vmin;
+}
+
+body {
+    background-color: black;
+}
+
+#title {
+    font-weight: 200;
+    font-style: normal;
+    font-size: 3vh;
+    line-height: 1;
+    margin: 3vh 0 3vh;
+    text-align: center;
+}
+
+#table-main {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    margin-bottom: 3vh;
+}
+
+article {
+    border-color: var(--bg-color);
+    color: var(--bg-color);
+}
+article.label {
+    height: 9vh;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    font-size: min(1.2vh, 0.9vw);
+}
+article.lanthanoid.label {
+    border-color: var(--bgcolor-lanthanoid);
+}
+article.actinoid.label {
+    border-color: var(--bgcolor-actinoid);
+}
+article.label .label-lanthanoid {
+}
+
+#table-lanthanoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    margin-bottom: var(--row-gap);
+}
+#table-actinoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+}
+
+article.element {
+    height: 9vh;
+    border: 1px solid;
+    border-radius: 0;
+}
+article.element::before {
+    content: "";
+    position: absolute;
+    border-width: .8vmin 0 0 .8vmin;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-top-color: var(--bg-color);
+    height: 0px;
+    width: 0px;
+    top: 0;
+    right: 0;
+}
+
+article.element .no {
+    position: absolute;
+    top: 0.6vmin;
+    left: 0.6vmin;
+    font-size: calc(min(1vh, 0.8vw));
+    text-align: left;
+    font-weight: 300;
+}
+article.element .symbol,
+article.element .name-zh {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(50% - min(1.1vh, 0.75vw));
+    text-align: center;
+    font-size: calc(min(2.2vh, 1.5vw));
+    font-weight: 300;
+}
+article.element .name-en,
+article.element .name-jp {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    font-size: min(1vh, 0.75vw);
+    font-weight: 200;
+    font-stretch: condensed;
+}
+
+footer {
+    font-weight: 100;
+}
+
+/*********** JP ************/
+html[data-mode=jp] #title {
+    font-family: source-han-sans-japanese, sans-serif;
+    letter-spacing: 3vw;
+    text-indent: 3vw;
+}
+
+html[data-mode=jp] article.element .name {
+    font-family: source-han-sans-japanese, sans-serif;
+    letter-spacing: 0.1vmin;
+    font-weight: 100;
+    font-size: min(.8vh, 0.5vw);
+}
+html[data-mode=jp] article.label {
+    font-family: source-han-sans-japanese, sans-serif;
+    font-weight: 100;
+}
+
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title {
+    font-family: source-han-sans-japanese, sans-serif;
+    letter-spacing: 3vw;
+    text-indent: 3vw;
+}
+
+html[data-mode=kanji] article.element .name-zh {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    top: calc(45% - min(1.5vh, 1.2vw));
+    font-size: calc(min(3vh, 2.4vw));
+}
+html[data-mode=kanji] article.element .name-zh svg {
+    width: calc(min(2.9vh, 2.2vw));
+    height: calc(min(2.9vh, 2.2vw));
+    margin-top: 0.1vh;
+}
+html[data-mode=kanji] article.element .name-zh svg.weight-h {
+    display: none;
+}
+html[data-mode=kanji] article.label {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    top: calc(50% - min(1vh, 0.75vw));
+    font-size: calc(min(2vh, 1.5vw));
+    font-weight: 200;
+}
+html[data-mode=kanji] article.element .name-en {
+    display: none;
+}
+html[data-mode=kanji] article.element .name-jp {
+    display: block;
+    font-family: source-han-sans-japanese, sans-serif;
+    letter-spacing: 0.1vmin;
+    font-size: min(.8vh, 0.5vw);
+}

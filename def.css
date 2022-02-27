@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Noto+Sans+TC:wght@100;400;700;900&family=Press+Start+2P&display=swap');
+
+:root {
+    --bgcolor-alkali-metal: #ffbbaf;
+    --bgcolor-alkali-earth-metal: #ffd6a7;
+    --bgcolor-transition-metal: #96d2fa;
+    --bgcolor-other-metal: #aeb4ce;
+    --bgcolor-lanthanoid: #ffb9f0;
+    --bgcolor-actinoid: #d399f5;
+    --bgcolor-metalloid: #8ae6b8;
+
+    --bgcolor-other-nonmetal: #e4fa96;
+    --bgcolor-halogen: #96ebfa;
+    --bgcolor-noble-gas: #96b6fa;
+
+    --bgcolor-unknown: #ddd;
+
+    --bgcolor-block-s: #ffbbaf;
+    --bgcolor-block-p: #f8fa96;
+    --bgcolor-block-d: #96d2fa;
+    --bgcolor-block-f: #8ae6b8;
+    --bgcolor-block-g: #ffb9f0;
+
+    --text-color: black;
+
+    --column-gap: 2vw;
+    --row-gap: 3vh;
+
+    --table-main:
+        "e1   g2   .... .... .... .... .... .... .... .... .... .... g13  g14  g15  g16  g17  e2"
+        "e3   e4   .... .... .... .... .... .... .... .... .... .... e5   e6   e7   e8   e9   e10"
+        "e11  e12  g3   g4   g5   g6   g7   g8   g9   g10  g11  g12  e13  e14  e15  e16  e17  e18"
+        "e19  e20  e21  e22  e23  e24  e25  e26  e27  e28  e29  e30  e31  e32  e33  e34  e35  e36"
+        "e37  e38  e39  e40  e41  e42  e43  e44  e45  e46  e47  e48  e49  e50  e51  e52  e53  e54"
+        "e55  e56  lant e72  e73  e74  e75  e76  e77  e78  e79  e80  e81  e82  e83  e84  e85  e86"
+        "e87  e88  acti e104 e105 e106 e107 e108 e109 e110 e111 e112 e113 e114 e115 e116 e117 e118";
+    --table-lant:
+        "lant e57 e58 e59 e60 e61 e62 e63 e64 e65 e66 e67 e68 e69 e70 e71 ... ...";
+    --table-acti:
+        "acti e89 e90 e91 e92 e93 e94 e95 e96 e97 e98 e99 e100 e101 e102 e103 ... ...";
+
+    --table-main-gp:
+        ".... g1   .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... g18"
+        "p1   e1   g2   .... .... .... .... .... .... .... .... .... .... g13  g14  g15  g16  g17  e2"
+        "p2   e3   e4   .... .... .... .... .... .... .... .... .... .... e5   e6   e7   e8   e9   e10"
+        "p3   e11  e12  g3   g4   g5   g6   g7   g8   g9   g10  g11  g12  e13  e14  e15  e16  e17  e18"
+        "p4   e19  e20  e21  e22  e23  e24  e25  e26  e27  e28  e29  e30  e31  e32  e33  e34  e35  e36"
+        "p5   e37  e38  e39  e40  e41  e42  e43  e44  e45  e46  e47  e48  e49  e50  e51  e52  e53  e54"
+        "p6   e55  e56  lant e72  e73  e74  e75  e76  e77  e78  e79  e80  e81  e82  e83  e84  e85  e86"
+        "p7   e87  e88  acti e104 e105 e106 e107 e108 e109 e110 e111 e112 e113 e114 e115 e116 e117 e118";
+    --table-lant-gp:
+        "... lant e57 e58 e59 e60 e61 e62 e63 e64 e65 e66 e67 e68 e69 e70 e71 ... ...";
+    --table-acti-gp:
+        "... acti e89 e90 e91 e92 e93 e94 e95 e96 e97 e98 e99 e100 e101 e102 e103 ... ...";
+
+    --table-pyykko-main:
+        ".... g1   .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... g18"
+        "p1   e1   g2   .... .... .... .... .... .... .... .... .... .... g13  g14  g15  g16  g17  e2"
+        "p2   e3   e4   .... .... .... .... .... .... .... .... .... .... e5   e6   e7   e8   e9   e10"
+        "p3   e11  e12  g3   g4   g5   g6   g7   g8   g9   g10  g11  g12  e13  e14  e15  e16  e17  e18"
+        "p4   e19  e20  e21  e22  e23  e24  e25  e26  e27  e28  e29  e30  e31  e32  e33  e34  e35  e36"
+        "p5   e37  e38  e39  e40  e41  e42  e43  e44  e45  e46  e47  e48  e49  e50  e51  e52  e53  e54"
+        "p6   e55  e56  ex6  e72  e73  e74  e75  e76  e77  e78  e79  e80  e81  e82  e83  e84  e85  e86"
+        "p7   e87  e88  ex7  e104 e105 e106 e107 e108 e109 e110 e111 e112 e113 e114 e115 e116 e117 e118";
+    --table-pyykko-sdp:
+        "p8   e119 e120 ex8g ex8f e156 e157 e158 e159 e160 e161 e162 e163 e164 e139 e140 e169 e170 e171 e172"
+        "p9   e165 e166 .... .... .... .... .... .... .... .... .... .... .... e167 e168 .... .... .... ...."
+        "p10  .... .... ex10 ex10 .... .... .... .... .... .... .... .... .... .... .... .... .... .... ....";
+    --table-pyykko-f:
+        "p6   e57  e58  e59  e60  e61  e62  e63  e64  e65  e66  e67  e68  e69  e70  e71  .... .... ...."
+        "p7   e89  e90  e91  e92  e93  e94  e95  e96  e97  e98  e99  e100 e101 e102 e103 .... .... ...."
+        "p8   e141 e142 e143 e144 e145 e146 e147 e148 e149 e150 e151 e152 e153 e154 e155 .... .... ....";
+    --table-pyykko-g:
+        "p8   e121 e122 e123 e124 e125 e126 e127 e128 e129 e130 e131 e132 e133 e134 e135 e136 e137 e138"
+        "p10  e173 .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... ....";
+
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    color: var(--text-color);
+    line-height: 1;
+    font-family: var(--font-default);
+}
+
+svg {
+    fill: currentColor;
+}
+
+.container {
+    padding: 0 2vw 0;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+}
+
+#legend-elements {
+    display: none;
+    position: absolute;
+}
+#legend-blocks {
+    display: none;
+    position: absolute;
+}
+
+#table-main {
+    display: grid;
+    width: 96vw;
+    grid-template-areas: var(--table-main);
+    grid-auto-columns: 1fr;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+}
+
+#table-lanthanoid {
+    display: grid;
+    width: 96vw;
+    grid-template-areas: var(--table-lant);
+    grid-auto-columns: 1fr;
+    column-gap: var(--column-gap);
+    margin-bottom: var(--row-gap);
+}
+#table-actinoid {
+    display: grid;
+    width: 96vw;
+    grid-template-areas: var(--table-acti);
+    grid-auto-columns: 1fr;
+    column-gap: var(--column-gap);
+}
+#table-pyykko-sdp {
+    display: none;
+    width: 96vw;
+    grid-auto-columns: 1fr;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+}
+#table-pyykko-f {
+    display: none;
+    width: 96vw;
+    grid-auto-columns: 1fr;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+}
+#table-pyykko-g {
+    display: none;
+    width: 96vw;
+    grid-auto-columns: 1fr;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+}
+
+.label-group {
+    display: none;
+    align-self: end;
+    justify-self: center;
+}
+.label-period {
+    display: none;
+    align-self: center;
+    justify-self: center;
+}
+
+article.label {
+    display: grid;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+article.label div {
+    white-space: nowrap;
+    transform-origin: left;
+    position: absolute;
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+}
+
+article.label-pyykko {
+    display: none;
+}
+
+article.element {
+    position: relative;
+}
+article.element div {
+    white-space: nowrap;
+    transform-origin: left;
+}
+
+article.element .name-jp {
+    display: none;
+}
+article.element .name-zh,
+article.element .name-jpkana {
+    display: none;
+}
+
+article.element .detail {
+    display: none;
+    white-space: nowrap;
+}
+article.element .mass {
+    grid-area: mass;
+}
+article.element .electronegativity {
+    grid-area: e-neg;
+}
+article.element .density {
+    grid-area: density;
+}
+article.element .radius {
+    grid-area: radius;
+}
+article.element .electron-config {
+    grid-area: e-conf;
+}
+article.element .electron-config sup {
+    vertical-align: 20%;
+}
+article.element .ionization-energy {
+    grid-area: ion;
+}
+article.element .electron-affinity {
+    grid-area: e-affi;
+}
+article.element .melting {
+    grid-area: melt;
+}
+article.element .boiling {
+    grid-area: boil;
+}
+article.element .discover-year {
+    grid-area: discover;
+}
+
+footer {
+    position: absolute;
+    bottom: 0.5vh;
+    right: 0.5vw;
+    opacity: 0.02;
+    font-family: var(--font-default);
+    font-size: 1.2vmin;
+}
+
+.alkali-metal {
+    --bg-color: var(--bgcolor-alkali-metal);
+}
+.alkali-earth-metal {
+    --bg-color: var(--bgcolor-alkali-earth-metal);
+}
+.transition-metal {
+    --bg-color: var(--bgcolor-transition-metal);
+}
+.other-metal {
+    --bg-color: var(--bgcolor-other-metal);
+}
+.other-nonmetal {
+    --bg-color: var(--bgcolor-other-nonmetal);
+}
+.noble-gas {
+    --bg-color: var(--bgcolor-noble-gas);
+}
+.halogen {
+    --bg-color: var(--bgcolor-halogen);
+}
+.metalloid {
+    --bg-color: var(--bgcolor-metalloid);
+}
+.lanthanoid {
+    --bg-color: var(--bgcolor-lanthanoid);
+}
+.actinoid {
+    --bg-color: var(--bgcolor-actinoid);
+}
+.unknown {
+    --bg-color: var(--bgcolor-unknown);
+}
+
+/*********** JP ************/
+html[data-mode=jp] article.element .name-jp {
+    display: block;
+}
+html[data-mode=jp] article.element .name-en {
+    display: none;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] article.element .symbol {
+    display: none;
+}
+
+html[data-mode=kanji] article.element .name-zh {
+    display: block;
+}

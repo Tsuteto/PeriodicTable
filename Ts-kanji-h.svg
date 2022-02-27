@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="Ts-kanji-h.svg"
+   viewBox="0 0 78.000002 78.000003"
+   version="1.1"
+   id="body">
+  <defs
+     id="defs881" />
+  <sodipodi:namedview
+     inkscape:current-layer="g870"
+     inkscape:window-maximized="0"
+     inkscape:window-y="79"
+     inkscape:window-x="329"
+     inkscape:cy="44.936641"
+     inkscape:cx="37.805604"
+     inkscape:zoom="6.7708267"
+     showgrid="false"
+     id="namedview879"
+     inkscape:window-height="1263"
+     inkscape:window-width="1860"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0" />
+  <metadata
+     id="metadata862">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g876"
+     transform="translate(0.22147225,-0.8284501)">
+    <g
+       id="g874"
+       aria-label="氫">
+      <g
+         id="g872"
+         aria-label="石田"
+         transform="scale(1.0404,0.96117)">
+        <g
+           id="g866"
+           aria-label="石"
+           transform="matrix(0.96117,0,0,1.0323962,0,1.2729616)">
+          <path
+             id="path864"
+             d="m 2.7443,4.5731 v 10.421 h 8.3524 c -1.75,12.727 -4.7728,24.5 -10.58,32.137 1.9887,2.5455 5.1705,8.2728 6.2046,10.898 l 1.5114,-1.9887 v 17.5 H 18.176 V 67.8131 H 33.369 V 29.8691 H 19.21 c 1.1932,-4.7728 2.1478,-9.7842 2.8637,-14.875 h 12.568 V 4.5731 Z m 15.432,35.319 h 5.0114 v 17.898 h -5.0114 z" />
+        </g>
+        <g
+           id="g870"
+           aria-label="田"
+           transform="matrix(0.96117,0,0,1.0891562,0.22454,-88.2529)">
+          <path
+             sodipodi:nodetypes="cccccccccccccccccccccccccccccc"
+             id="path868"
+             d="M 51.108385,95.605676 V 113.051 H 45.715031 V 95.605676 Z m 9.73523,0 h 5.786846 V 113.051 H 60.843615 Z M 51.108385,123.787 v 17.36332 H 45.715031 V 123.787 Z m 9.73523,0 h 5.786846 v 17.36332 H 60.843615 Z M 35.735,155.747 h 9.980231 v -4.4252 h 20.91523 v 3.6877 H 76.955 v -69.82 h -41.22 c 0.09081,22.82 0,50.607 0,70.558 z" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

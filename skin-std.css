@@ -1,0 +1,190 @@
+:root {
+    --font-default: source-sans-pro, sans-serif;
+}
+
+.title-left,
+.title-right {
+    align-self: center;
+    height: 1vmin;
+    border-radius: 0.5vmin;
+    background-color: #ddd;
+}
+.title-container {
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+
+#title {
+    margin: 2vh 0 2vh;
+    text-align: center;
+    line-height: 1;
+    font-weight: 900;
+    font-size: 5vh;
+}
+
+#table-main {
+    gap: 0.4vw;
+    margin-bottom: 3vh;
+}
+#table-lanthanoid {
+    gap: 0.4vw;
+    margin-bottom: 0.4vw;
+}
+#table-actinoid {
+    gap: 0.4vw;
+}
+
+.label-group {
+    margin-bottom: 0.5vh;
+    text-align: center;
+    font-size: calc(min(1.5vh, 1vw));
+}
+.label-period {
+    text-align: center;
+    font-size: calc(min(1.5vh, 1vw));
+}
+
+article.label {
+    border-radius: 2vmin;
+    border: 0.4vw solid transparent;
+    background-color: transparent;
+    font-size: calc(min(1.5vh, 0.8vw));
+    font-weight: 900;
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    font-feature-settings: "palt" 1;
+}
+article.lanthanoid.label {
+    border-color: var(--bgcolor-lanthanoid);
+}
+article.actinoid.label {
+    border-color: var(--bgcolor-actinoid);
+}
+
+article.element {
+    border-radius: 0.5vmin;
+    font-weight: 900;
+    height: 9vh;
+}
+
+article.element .no {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: calc(min(2vh, 1.5vw));
+}
+article.element .symbol,
+article.element .name-zh {
+    position: absolute;
+    top: calc(50% - min(2.25vh, 1.5vw));
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: calc(min(4.5vh, 3vw))
+}
+article.element .name {
+    position: absolute;
+    bottom: 7%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+    transform-origin: left;
+}
+article.element .name-jp {
+    font-family: "BIZ UDPゴシック";
+    letter-spacing: -0.05vmin;
+    font-weight: bold;
+}
+article.element .name-zh,
+article.element .name-jpkana {
+    display: none;
+}
+
+
+.alkali-metal {
+    background-color: var(--bgcolor-alkali-metal);
+}
+.alkali-earth-metal {
+    background-color: var(--bgcolor-alkali-earth-metal);
+}
+.transition-metal {
+    background-color: var(--bgcolor-transition-metal);
+}
+.other-metal {
+    background-color: var(--bgcolor-other-metal);
+}
+.other-nonmetal {
+    background-color: var(--bgcolor-other-nonmetal);
+}
+.noble-gas {
+    background-color: var(--bgcolor-noble-gas);
+}
+.halogen {
+    background-color: var(--bgcolor-halogen);
+}
+.metalloid {
+    background-color: var(--bgcolor-metalloid);
+}
+.lanthanoid {
+    background-color: var(--bgcolor-lanthanoid);
+}
+.actinoid {
+    background-color: var(--bgcolor-actinoid);
+}
+.unknown {
+    background-color: var(--bgcolor-unknown);
+}
+
+footer {
+    font-family: var(--font-default);
+    position: absolute;
+    bottom: 0.5vh;
+    right: 0.5vw;
+    font-size: 1.2vmin;
+}
+
+/*********** JP ************/
+html[data-mode=jp] #title {
+    text-indent: 1vw;
+    letter-spacing: 1vw;
+    font-family: source-han-sans-japanese, sans-serif;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    letter-spacing: 1vh;
+}
+
+html[data-mode=kanji] article.label {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    top: calc(50% - min(1.5vh, 0.9vw));
+    font-size: calc(min(3vh, 1.8vw));
+}
+
+html[data-mode=kanji] article.element .name-zh {
+    top: calc(50% - min(2vh, 1.25vw));
+    font-size: calc(min(4vh, 2.5vw));
+
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+html[data-mode=kanji] article.element .name-zh svg {
+    width: calc(min(3.9vh, 2.3vw));
+    height: calc(min(3.9vh, 2.3vw));
+    margin-top: 0.3vmin;
+}
+html[data-mode=kanji] article.element .name-zh svg.weight-l {
+    display: none;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 78 78"
+   version="1.1"
+   id="body"
+   sodipodi:docname="Og-kanji-l.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <defs
+     id="defs839" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2001"
+     inkscape:window-height="1246"
+     id="namedview837"
+     showgrid="false"
+     inkscape:zoom="12.345803"
+     inkscape:cx="29.780634"
+     inkscape:cy="42.532931"
+     inkscape:window-x="217"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="text2045" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="レイヤー 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.47945598,-0.77486837)">
+    <g
+       transform="matrix(0.84694749,0,0,0.85407319,43.053706,-63.638335)"
+       style="font-size:96px;line-height:1.25;font-family:sans-serif"
+       id="text2034"
+       aria-label="氫">
+      <g
+         aria-label="奧"
+         transform="matrix(1.0819268,0,0,0.91418107,0,1.8120903)"
+         id="text2045"
+         style="font-size:67.1916px;line-height:1.25;font-family:sans-serif;stroke-width:0.69991">
+        <path
+           d="m -3.691861,133.35887 c -0.7960211,1.88137 -2.143134,4.29982 -3.2453173,6.0468 l 1.8982045,1.00788 c 1.1634157,-1.74698 2.3880637,-3.6951 3.5514794,-6.114 z M -24.4278,135.209 c 1.255438,1.6126 2.385331,3.73807 2.761962,5.35067 l 2.259788,-1.00788 c -0.439403,-1.5454 -1.632069,-3.53649 -2.824734,-5.21628 z m 10.035937,-16.99888 c -0.604725,1.6126 -1.612599,3.9643 -2.620473,5.84567 h -19.216796 v 34.53648 h 2.737234 V 126.94503 H 8.2021342 v 31.64724 h 2.8716178 v -34.53648 h -24.592125 c 0.873491,-1.54541 1.746982,-3.29239 2.553281,-5.10656 z m -0.380665,38.23202 c -0.310337,1.41102 -0.620673,2.82204 -1.055145,4.09868 h -27.120619 v 3.32938 h 25.674773 c -3.305614,6.78635 -10.758238,10.71367 -26.413881,12.79661 0.537533,0.67191 1.276641,2.01575 1.545407,2.75485 16.999474,-2.41889 24.993752,-7.15251 28.548846,-15.55146 h 0.84446 c 4.3285943,9.67559 14.2812322,13.80448 28.391468,15.61866 0.470341,-0.94069 1.27664,-2.28452 2.082939,-3.02363 C 4.3545923,175.18859 -5.2419075,171.866 -9.3158792,163.8702 H 16.785038 v -3.32938 h -29.323145 c 0.372404,-1.27664 0.68274,-2.68766 0.993077,-4.09868 z m 15.16281606,-27.7076 c -6.51758486,1.14225 -18.88083906,1.94855 -28.69081206,2.21732 0.335958,0.67191 0.671916,1.90603 0.739108,2.51075 4.098687,-0.0672 9.19951,-0.20157 13.019758,-0.47034 v 7.78832 h -14.968315 v 2.69357 h 12.910161 c -3.493963,4.09869 -8.811473,8.19737 -13.649268,10.21312 0.604724,0.47034 1.545407,1.47822 1.948556,2.08294 4.569029,-2.21732 10.585122,-6.3832 13.758866,-10.61627 v 9.27244 h 2.718487 v -7.79423 c 4.3492055,2.68767 10.8024355,6.18163 13.9604406,8.39895 l 1.6125983,-2.15013 c -3.49396303,-2.41889 -10.9887412,-6.41975 -15.5730389,-9.10741 v -0.29941 H 3.7498679 v -2.69357 H -11.823171 v -7.98989 c 4.6430707,-0.33596 10.3320943,-0.8735 14.0276322,-1.54541 z"
+           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Source Han Sans JP';-inkscape-font-specification:'Source Han Sans JP Light';stroke-width:0.69991"
+           id="path858"
+           sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      </g>
+      <g
+         aria-label="氦 "
+         transform="matrix(0.99997738,0,0,0.99163435,-0.01748788,0.32154057)"
+         id="text849"
+         style="font-weight:300;font-size:94.8514px;line-height:1.25;font-family:'Source Han Sans JP';-inkscape-font-specification:'Source Han Sans JP Light';stroke-width:0.988034">
+        <path
+           d="m -28.922387,95.871407 v 2.891696 h 59.03049 v -2.891696 z m 1.595416,-19.045309 c -4.985683,11.666498 -13.26191,22.834428 -22.136431,30.312962 0.797708,0.39885 2.093987,1.39599 2.592559,1.89455 5.982815,-5.28482 11.666494,-12.264781 16.452752,-20.14216 h 68.303859 v -2.891695 h -66.60872 c 1.595416,-2.692269 2.991408,-5.484251 4.287687,-8.375948 z M -40.788305,106.0422 v 2.8917 h 60.6259 c 1.196564,33.50379 3.589692,57.7342 15.455618,57.7342 4.487115,0 5.384537,-4.28768 5.883105,-17.15074 -0.697996,-0.19943 -1.894559,-0.79771 -2.592555,-1.29628 -0.199427,9.37309 -0.897423,15.65504 -3.091124,15.65504 -9.373083,0 -11.965638,-29.01667 -12.863062,-57.83392 z"
+           style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-family:'Source Han Sans TW';-inkscape-font-specification:'Source Han Sans TW Ultra-Light';stroke-width:1.03868"
+           id="path855"
+           sodipodi:nodetypes="cccccccccccccccccsccscc" />
+      </g>
+    </g>
+  </g>
+</svg>
