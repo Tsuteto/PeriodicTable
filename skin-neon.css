@@ -1,0 +1,232 @@
+:root {
+    --font-default: "Hanzel", source-han-sans-japanese, sans-serif;
+    --bgcolor-alkali-metal: transparent;
+    --bgcolor-alkali-earth-metal: transparent;
+    --bgcolor-transition-metal: transparent;
+    --bgcolor-other-metal: transparent;
+    --bgcolor-lanthanoid: transparent;
+    --bgcolor-actinoid: transparent;
+    --bgcolor-metalloid: transparent;
+
+    --bgcolor-other-nonmetal: transparent;
+    --bgcolor-noble-gas: transparent;
+    --bgcolor-halogen: transparent;
+
+    --bgcolor-unknown: transparent;
+
+    --neon-text-color: #08f;
+    --neon-border-color: #08f;
+  }
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+#title {
+    font-weight: 900;
+    font-style: normal;
+    font-size: 5vh;
+    line-height: 1;
+    margin: 2vh 0 1vh;
+    text-align: center;
+
+    text-shadow:
+    -0.02vmin -0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+    0.02vmin 0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+    0 0 0.2vmin var(--neon-text-color),
+    0 0 0.4vmin var(--neon-text-color),
+    0 0 0.6vmin var(--neon-text-color),
+    0 0 0.8vmin var(--neon-text-color),
+    0 0 1vmin var(--neon-text-color);
+}
+
+#table-main {
+    gap: 0.4vw;
+    margin-bottom: 3vh;
+}
+#table-lanthanoid {
+    gap: 0.4vw;
+    margin-bottom: 0.4vw;
+}
+#table-actinoid {
+    gap: 0.4vw;
+}
+
+article.label {
+    border: 0.4vw solid transparent;
+    border-radius: 0.8vmin;
+    box-shadow:
+        0 0 0.2vmin #fff,
+        inset 0 0 0.2vmin #fff,
+        0 0 1vmin var(--neon-border-color),
+        inset 0 0 1vmin var(--neon-border-color),
+        0 0 2vmin var(--neon-border-color),
+        inset 0 0 2vmin var(--neon-border-color);
+    font-size: calc(min(1.5vh, 0.8vw));
+    font-weight: 900;
+    color: black;
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    font-feature-settings: "palt" 1;
+    text-shadow:
+        -0.02vmin -0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+        0.02vmin 0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+        0 0 0.2vmin var(--neon-text-color),
+        0 0 0.4vmin var(--neon-text-color),
+        0 0 0.6vmin var(--neon-text-color),
+        0 0 0.8vmin var(--neon-text-color),
+        0 0 1vmin var(--neon-text-color);
+}
+article.lanthanoid.label {
+    border: 0;
+}
+article.actinoid.label {
+    border: 0;
+}
+article.label .label-lanthanoid {
+}
+
+#table-lanthanoid {
+}
+#table-actinoid {
+}
+
+article.element {
+    border-radius: 0.5vmin;
+    height: 9vh;
+    box-shadow:
+        0 0 0.2vmin #fff,
+        inset 0 0 0.2vmin #fff,
+        0 0 1vmin var(--neon-border-color),
+        inset 0 0 1vmin var(--neon-border-color),
+        0 0 2vmin var(--neon-border-color),
+        inset 0 0 2vmin var(--neon-border-color);
+}
+
+article.element .no {
+    position: absolute;
+    top: 5%;
+    left: 8%;
+    color: transparent;
+    font-weight: normal;
+    font-size: calc(min(1.6vh, 1.2vw));
+    text-shadow:
+    -0.02vmin -0.02vmin 0.1vmin rgba(255, 255, 255, .9),
+    0.02vmin 0.02vmin 0.1vmin rgba(255, 255, 255, .9),
+    0 0 0.2vmin var(--neon-text-color),
+    0 0 0.4vmin var(--neon-text-color),
+    0 0 0.6vmin var(--neon-text-color),
+    0 0 0.8vmin var(--neon-text-color),
+    0 0 1vmin var(--neon-text-color);
+}
+article.element .name {
+    position: absolute;
+    bottom: 7%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+    transform-origin: left;
+}
+article.element .symbol,
+article.element .name-zh {
+    position: absolute;
+    top: calc(50% - min(2vh, 1.25vw));
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    font-size: calc(min(4vh, 2.5vw));
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.05vmin;
+    -webkit-text-stroke-color: white;
+    filter: 
+    drop-shadow(-0.02vmin -0.02vmin 0.1vmin white)
+    drop-shadow(0.02vmin 0.02vmin 0.1vmin white)
+    drop-shadow(0 0 0.2vmin var(--neon-text-color))
+    drop-shadow(0 0 0.4vmin var(--neon-text-color));
+}
+article.element .name-en,
+article.element .name-jp {
+    color: transparent;
+    font-weight: 400;
+    text-shadow:
+    -0.01vmin -0.01vmin 0.06vmin rgba(255, 255, 255, .9),
+    0.01vmin 0.01vmin 0.06vmin rgba(255, 255, 255, .9),
+    0 0 0.2vmin var(--neon-text-color),
+    0 0 0.4vmin var(--neon-text-color),
+    0 0 0.6vmin var(--neon-text-color),
+    0 0 0.8vmin var(--neon-text-color),
+    0 0 1vmin var(--neon-text-color);
+}
+
+svg {
+    fill: currentColor;
+    width: calc(min(4vh, 2.5vw));
+    height: calc(min(4vh, 2.5vw));
+    stroke-width: 0.05vmin;
+    stroke: white;
+    margin-top: 0.2vmin;
+}
+
+footer {
+    text-shadow:
+    -0.02vmin -0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+    0.02vmin 0.02vmin 0.1vmin rgba(255, 255, 255, 1),
+    0 0 0.2vmin var(--neon-text-color),
+    0 0 0.4vmin var(--neon-text-color),
+    0 0 0.6vmin var(--neon-text-color),
+    0 0 0.8vmin var(--neon-text-color),
+    0 0 1vmin var(--neon-text-color);
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+/*********** JP ************/
+html[data-mode=jp] #title {
+    text-indent: 3vw;
+    letter-spacing: 3vw;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    text-indent: 3vw;
+    letter-spacing: 3vw;
+}
+
+html[data-mode=kanji] article.label {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    top: calc(50% - min(1.5vh, 0.9vw));
+    font-size: calc(min(3vh, 1.8vw));
+}
+
+html[data-mode=kanji] article.element .name-zh {
+    top: calc(50% - min(2vh, 1.25vw));
+    font-size: calc(min(4vh, 2.5vw));
+
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+html[data-mode=kanji] article.element .name-zh svg {
+    width: calc(min(3.9vh, 2.3vw));
+    height: calc(min(3.9vh, 2.3vw));
+    margin-top: 0.3vmin;
+}
+html[data-mode=kanji] article.element .name-zh svg.weight-l {
+    display: none;
+}

@@ -1,0 +1,67 @@
+@import url(skin-neon.css);
+
+:root {
+    --font-default: "Hanzel", source-han-sans-japanese, sans-serif;
+    --neon-text-color: #08f;
+    --neon-border-color: #08f;
+
+    --bgcolor-alkali-metal: #ff003780;
+    --bgcolor-alkali-earth-metal: #ff880080;
+    --bgcolor-transition-metal: #00aeff80;
+    --bgcolor-other-metal: #13ffff80;
+    --bgcolor-lanthanoid: #ff2bd180;
+    --bgcolor-actinoid: #b12bff80;
+    --bgcolor-metalloid: #00ff8080;
+
+    --bgcolor-other-nonmetal: #9dff0080;
+    --bgcolor-halogen: #fffb0080;
+    --bgcolor-noble-gas: #0051ff80;
+
+    --bgcolor-unknown: #ddddec80;
+}
+
+.alkali-metal {
+    --neon-text-color: var(--bgcolor-alkali-metal);
+    --neon-border-color: var(--bgcolor-alkali-metal);
+}
+.alkali-earth-metal {
+    --neon-text-color: var(--bgcolor-alkali-earth-metal);
+    --neon-border-color: var(--bgcolor-alkali-earth-metal);
+}
+.transition-metal {
+    --neon-text-color: var(--bgcolor-transition-metal);
+    --neon-border-color: var(--bgcolor-transition-metal);
+}
+.other-metal {
+    --neon-text-color: var(--bgcolor-other-metal);
+    --neon-border-color: var(--bgcolor-other-metal);
+}
+.other-nonmetal {
+    --neon-text-color: var(--bgcolor-other-nonmetal);
+    --neon-border-color: var(--bgcolor-other-nonmetal);
+}
+.noble-gas {
+    --neon-text-color: var(--bgcolor-noble-gas);
+    --neon-border-color: var(--bgcolor-noble-gas);
+}
+.halogen {
+    --neon-text-color: var(--bgcolor-halogen);
+    --neon-border-color: var(--bgcolor-halogen);
+}
+.metalloid {
+    --neon-text-color: var(--bgcolor-metalloid);
+    --neon-border-color: var(--bgcolor-metalloid);
+}
+.lanthanoid {
+    --neon-text-color: var(--bgcolor-lanthanoid);
+    --neon-border-color: var(--bgcolor-lanthanoid);
+}
+.actinoid {
+    --neon-text-color: var(--bgcolor-actinoid);
+    --neon-border-color: var(--bgcolor-actinoid);
+}
+.unknown {
+    --neon-text-color: var(--bgcolor-unknown);
+    --neon-border-color: var(--bgcolor-unknown);
+}
+
