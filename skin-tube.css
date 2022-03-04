@@ -1,0 +1,228 @@
+:root {
+    --font-default: "Press Start 2P", "MisakiGothic";
+    --bgcolor-alkali-metal: #ff3e1c;
+    --bgcolor-alkali-earth-metal: #ff9c2b;
+    --bgcolor-transition-metal: #2cabff;
+    --bgcolor-other-metal: #264eff;
+    --bgcolor-lanthanoid: #ff23cf;
+    --bgcolor-actinoid: #ad1fff;
+    --bgcolor-metalloid: #17ff8b;
+
+    --bgcolor-other-nonmetal: #cdff19;
+    --bgcolor-halogen: #19ddff;
+    --bgcolor-noble-gas: #96b6fa;
+
+    --bgcolor-unknown: rgb(255, 255, 255);
+
+    --text-color: #38c725;
+
+    --column-gap: 0.5vmin;
+    --row-gap: 0.5vmin;
+}
+
+body {
+    background-color: #181818;
+}
+main:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background:
+        linear-gradient(transparent 50%, #0f0e0ec0 50%),
+        /*linear-gradient(90deg, #ff0000ff calc(100% / 3),
+            #00ff00ff calc(100% / 3), #00ff00ff calc(100% / 3 * 2),
+            #0000ffff calc(100% / 3 * 2));*/
+        linear-gradient(90deg, #ff0000ff 16.666%,
+            #00ff00ff 50%,
+            #0000ffff 83.333%);
+    background-size: 100% 2px, 3px 100%;
+    mix-blend-mode: multiply;
+    filter: brightness(400%);
+}
+
+header {
+    margin: 4.5vh 0 2vh;
+}
+
+#title {
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2.5vh;
+    line-height: 1;
+}
+#title::before {
+    content: "> ";
+}
+
+#table-main {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    margin-bottom: 3vh;
+}
+
+article.label {
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: var(--text-color);
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+}
+article.lanthanoid.label {
+    color: var(--bgcolor-lanthanoid);
+    border: 0.3vmin solid var(--bgcolor-lanthanoid);
+}
+article.actinoid.label {
+    color: var(--bgcolor-actinoid);
+    border: 0.3vmin solid var(--bgcolor-actinoid);
+}
+article.label .label-lanthanoid {
+}
+
+#table-lanthanoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    margin-bottom: var(--row-gap);
+}
+#table-actinoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+}
+
+article {
+    border: 0.3vmin solid transparent;
+    border-color: var(--bg-color);
+    color: var(--bg-color);
+    border-radius: 0;
+    height: 8.8vh;
+}
+article.label .label-actinoid,
+article.label .label-lanthanoid {
+    white-space: normal;
+    width: 90%;
+}
+
+article.element .no {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: calc(min(1.2vh, 0.8vw));
+    text-align: left;
+    font-weight: 400;
+}
+article.element .symbol,
+article.element .name-zh {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: calc(50% - min(1.5vh, 1vw));
+    text-align: center;
+    font-size: calc(min(3vh, 2vw));
+    font-weight: 200;
+}
+article.element .name-en,
+article.element .name-jpkana {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+}
+
+article.element .name-jpkana {
+    bottom: 2%;
+    letter-spacing: 0;
+    font-family: "MOTHER2 FONT";
+    font-size: min(2.1vh, 1.4vw);
+}
+
+/*********** EN ************/
+article.label .label-actinoid,
+article.label .label-lanthanoid {
+    position: absolute;
+    white-space: normal;
+    width: 110%;
+    left: -5%;
+}
+
+/*********** JP ************/
+html[data-mode=jp] #title {
+    text-indent: 3vw;
+    letter-spacing: 3vw;
+    margin-top: -0.3vh;
+    margin-bottom: 0.6vh;
+}
+html[data-mode=jp] #title::before {
+    content: "";
+}
+html[data-mode=jp] .title-container {
+    border: 0.25vmin solid var(--text-color);
+    transform: scale(1.5);
+}
+html[data-mode=jp] article.element .name-jp {
+    display: none;
+}
+html[data-mode=jp] article.element .name-jpkana {
+    display: block;
+}
+html[data-mode=jp] article.label .label-lanthanoid,
+html[data-mode=jp] article.label .label-actinoid {
+    font-size: min(1.8vh, 1.2vw);
+    width: 3em;
+    left: calc(50% - 1.5em);
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title {
+    text-indent: 3vw;
+    letter-spacing: 3vw;
+    font-family: source-han-sans-japanese, sans-serif;
+    font-weight: 700;
+    transform: scale(1.5);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+html[data-mode=kanji] #title::before {
+    content: "";
+}
+
+html[data-mode=kanji] article.element .name-zh {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    font-weight: 900;
+    top: calc(45% - min(1.8vh, 1.2vw));
+    font-size: calc(min(3.6vh, 2.4vw));
+}
+html[data-mode=kanji] article.element .name-zh svg {
+    width: calc(min(3.5vh, 2.2vw));
+    height: calc(min(3.5vh, 2.2vw));
+    margin-top: 0.2vmin;
+}
+html[data-mode=kanji] article.element .name-zh svg.weight-l {
+    display: none;
+}
+html[data-mode=kanji] article.label {
+    font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    font-size: calc(min(2.6vh, 1.8vw));
+    font-weight: 700;
+}
+
+html[data-mode=kanji] article.element .name-jp {
+    display: none;
+}
+html[data-mode=kanji] article.element .name-jpkana {
+    display: block;
+}

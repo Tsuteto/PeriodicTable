@@ -7,6 +7,40 @@ var config = {
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
 })(document);
 
+var query = (function() {
+    let querystr = window.location.search;
+    let query = {};
+    let re = /[?&]([^=]+)=([^&#]+|.+$)/g;
+    while (re.exec(querystr)) {
+        query[RegExp.$1] = RegExp.$2;
+    }
+
+    let mode = query["mode"] || "en";
+    let skin = query["skin"] || "std";
+
+    let $html = document.getElementsByTagName("html")[0];
+    $html.setAttribute("data-mode", mode);
+
+    let $head = document.getElementsByTagName("head")[0];
+
+    let skinLink = document.createElement("link");
+    skinLink.rel = "stylesheet";
+    skinLink.href = `./skin-${skin}.css`;
+    $head.appendChild(skinLink);
+
+    let $script;
+
+    $script = document.createElement("script");
+    $script.src = `./skin-${skin}.js`;
+    $head.appendChild($script);
+
+    $script = document.createElement("script");
+    $script.src = `./context_${mode}.js`;
+    $head.appendChild($script);
+
+    return query;
+})();
+
 class PeriodicTable {
     static GROUP_LIST = {
         1: "IA", 2: "IIA",
@@ -14,30 +48,8 @@ class PeriodicTable {
         13: "IIIA", 14: "IVA", 15: "VA", 16: "VIA", 17: "VIIA", 18: "VIIIA"
     };
 
-    constructor() {
-        let querystr = window.location.search;
-        this.query = {};
-        let re = /[?&]([^=]+)=([^&#]+|.+$)/g;
-        while (re.exec(querystr)) {
-            this.query[RegExp.$1] = RegExp.$2;
-        }
-
-        let mode = this.query["mode"] || "en";
-
-        let $html = document.getElementsByTagName("html")[0];
-        $html.setAttribute("data-mode", mode);
-
-        let $head = document.getElementsByTagName("head")[0];
-
-        let $script = document.createElement("script");
-        $script.src = `./context_${mode}.js`;
-        $head.appendChild($script);
-
-        let skinLink = document.createElement("link");
-        skinLink.rel = "stylesheet";
-        skinLink.href = `./skin-${this.query["skin"] || "std"}.css`;
-        $head.appendChild(skinLink);
-
+    constructor(query) {
+        this.query = query;
     }
 
     init() {
@@ -209,7 +221,8 @@ class PeriodicTable {
         $cell.appendChild($label1);
         $cell.appendChild($label2);
         return $cell;
-}
+    }
+
     createPeriod(p) {
         let $cell = document.createElement("div");
         $cell.className = `label label-period period-${p}`;
@@ -592,6 +605,3 @@ const ELEMENT_DATA = [
     {no: 171, symbol: "Usu", name: {en: "Unseptunium", jp: "ウンセプトウニウム", jpkana: "ウンセプトウニウム", zh: ""}, group: Group.UNKNOWN, block: "p", mass: "", state: State.UNKNOWN, electronAffinity: "", electronegativity: "", ionizationEnergy: "", density: "", radius: "", meltingAt: "", boilingAt: "", electronConfig: {expr: "[Uho] 6g<sup>1</sup> 9s<sup>2</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 14, 18, 2, 6, 10, 14, 1, 2, 6, 10, 2, 6, 2]}, isSynthetic: null, discoveredOn: null},
     {no: 172, symbol: "Usb", name: {en: "Unseptbium", jp: "ウンセプトビウム", jpkana: "ウンセプトビウム", zh: ""}, group: Group.UNKNOWN, block: "p", mass: "", state: State.UNKNOWN, electronAffinity: "", electronegativity: "", ionizationEnergy: "", density: "", radius: "", meltingAt: "", boilingAt: "", electronConfig: {expr: "[Uho] 6g<sup>2</sup> 9s<sup>2</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 14, 18, 2, 6, 10, 14, 2, 2, 6, 10, 2, 6, 2]}, isSynthetic: null, discoveredOn: null},
     {no: 173, symbol: "Ust", name: {en: "Unsepttrium", jp: "ウンセプトトリウム", jpkana: "ウンセプトトリウム", zh: ""}, group: Group.UNKNOWN, block: "g", mass: "", state: State.UNKNOWN, electronAffinity: "", electronegativity: "", ionizationEnergy: "", density: "", radius: "", meltingAt: "", boilingAt: "", electronConfig: {expr: "[Uho] 6g<sup>3</sup> 9s<sup>2</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 14, 18, 2, 6, 10, 14, 3, 2, 6, 10, 2, 6, 2]}, isSynthetic: null, discoveredOn: null},];
-
-let app = new PeriodicTable();
-addEventListener("load", e => app.init());
