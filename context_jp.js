@@ -2,7 +2,7 @@ const CONTEXT = {
     title: "元素周期表",
     lanthanoid: "ランタノイド",
     actinoid: "アクチノイド",
-    legend: "",
+    legend: "凡例",
     no: "元素番号",
     symbol: "記号",
     name: {
