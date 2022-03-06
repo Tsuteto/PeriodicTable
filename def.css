@@ -198,7 +198,7 @@ article.element div {
 article.element .name-jp {
     display: none;
 }
-article.element .name-zh,
+article.element .name-kanji,
 article.element .name-jpkana {
     display: none;
 }
@@ -231,11 +231,20 @@ article.element .ionization-energy {
 article.element .electron-affinity {
     grid-area: e-affi;
 }
+article.element .state {
+    grid-area: state;
+}
 article.element .melting {
     grid-area: melt;
 }
+article.element .melting-c {
+    grid-area: meltC;
+}
 article.element .boiling {
     grid-area: boil;
+}
+article.element .boiling-c {
+    grid-area: boilC;
 }
 article.element .discover-year {
     grid-area: discover;
@@ -297,7 +306,7 @@ html[data-mode=kanji] article.element .symbol {
     display: none;
 }
 
-html[data-mode=kanji] article.element .name-zh {
+html[data-mode=kanji] article.element .name-kanji {
     display: block;
 }
 html[data-mode=kanji] article.element .name-jp {

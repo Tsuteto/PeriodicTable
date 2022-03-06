@@ -1,0 +1,302 @@
+:root {
+    --font-default: "Century Schoolbook", source-han-serif-japanese, serif;
+    --bgcolor-alkali-metal: transparent;
+    --bgcolor-alkali-earth-metal: transparent;
+    --bgcolor-transition-metal: transparent;
+    --bgcolor-other-metal: transparent;
+    --bgcolor-lanthanoid: transparent;
+    --bgcolor-actinoid: transparent;
+    --bgcolor-metalloid: transparent;
+
+    --bgcolor-other-nonmetal: transparent;
+    --bgcolor-noble-gas: transparent;
+    --bgcolor-halogen: transparent;
+
+    --bgcolor-unknown: transparent;
+
+    --text-color: #281f80;
+
+    --column-gap: 0.15vmin;
+    --row-gap: 0.15vmin;
+    --cell-height: 9.4vh;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    background: radial-gradient(circle, #00000000 70%, #00000010 85%, #00000020 100%);
+    filter:
+        drop-shadow(-0.0vmin -0.003vmin 0.003vmin var(--text-color))
+        drop-shadow(0.007vmin 0.0vmin 0.007vmin var(--text-color))
+        blur(0.025vmin)
+        drop-shadow(0 0 0.008vmin var(--text-color));
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 96vw;
+}
+
+.title-container {
+    box-shadow: 0 0 0 0.1vmin var(--text-color), 0 0 0 0.3vmin white, 0 0 0 0.6vmin var(--text-color);
+    margin: 4vh 0 0;
+    padding: 0.5vh 0;
+}
+
+#title {
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3vh;
+    line-height: 1;
+    text-align: center;
+    padding: 0 1vw;
+}
+#legend-elements {
+    display: grid;
+    left: 20vw;
+    top: 12vh;
+}
+#legend-elements .title {
+    margin-bottom: 0.5vh;
+    text-align: center;
+    font-size: calc(min(1.5vh, 1vw));
+    font-weight: bold;
+}
+#legend-elements .element {
+    width: 12vw;
+    height: auto;
+    row-gap: 0.4vh;
+}
+
+.tables {
+    padding-top: 3vh;
+}
+
+#table-main {
+    grid-template-areas: var(--table-main-gp);
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    grid-template-columns: 1.5vw;
+    margin-bottom: 3vh;
+}
+#table-lanthanoid {
+    grid-template-areas: var(--table-lant-gp);
+    grid-template-columns: 1.5vw;
+}
+#table-actinoid {
+    grid-template-areas: var(--table-acti-gp);
+    grid-template-columns: 1.5vw;
+}
+
+.label-group {
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 0.5vh;
+    font-size: calc(min(1.4vh, 0.9vw));
+}
+.label-period {
+    display: block;
+    font-size: calc(min(1.4vh, 0.9vw));
+}
+
+article.label {
+    height: var(--cell-height);
+    box-shadow: 0 0 0 var(--column-gap) var(--text-color);
+    color: var(--text-color);
+    font-size: calc(min(1.5vh, 0.8vw));
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    width: 90%;
+    left: 5%;
+    text-align: center;
+}
+article.lanthanoid.label {
+    border: 0;
+}
+article.actinoid.label {
+    border: 0;
+}
+article.label .label-lanthanoid {
+}
+
+#table-lanthanoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    margin-bottom: var(--row-gap);
+}
+#table-actinoid {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+}
+
+article.element {
+    display: grid;
+    position: relative;
+    grid-template-areas: 
+        "mass e-neg"
+        "no-symbol no-symbol"
+        "name name"
+        "radius ion"
+        "density boil"
+        "state melt"
+        "e-conf e-conf";
+    grid-template-columns: 50% 50%;
+    height: var(--cell-height);
+    background-color: transparent;
+    box-shadow: 0 0 0 var(--column-gap) var(--text-color);
+    border-radius: 0;
+    width: calc(94.5vw / 18 - var(--row-gap));
+    padding: 0.2vmin;
+}
+
+article.element .no-symbol {
+    position: relative;
+    grid-area: no-symbol;
+    text-align: center;
+    padding-bottom: 0vh;
+}
+article.element .no {
+    display: inline-block;
+    position: relative;
+    padding-right: 0.1vmin;
+    font-size: calc(min(1.6vh, 1.2vw));
+    font-weight: bold;
+    text-align: right;
+}
+article.element .symbol {
+    display: inline-block;
+    position: relative;
+    font-size: calc(min(2.4vh, 1.8vw));
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.85;
+}
+article.element .name {
+    grid-area: name;
+    position: relative;
+    text-align: center;
+    font-size: calc(min(1.2vh, 0.75vw));
+    font-kerning: normal;
+    font-weight: normal;
+    white-space: nowrap;
+    transform-origin: left;
+}
+article.element .detail {
+    position: relative;
+    display: block;
+    font-kerning: normal;
+    font-weight: normal;
+    font-size: calc(min(1.1vh, 0.75vw));
+    white-space: nowrap;
+    transform-origin: left;
+    overflow: visible;
+    text-align: center;
+}
+article.element .mass {
+}
+article.element .electronegativity {
+}
+article.element .density {
+}
+article.element .radius {
+}
+article.element .electron-config {
+}
+article.element .ionization-energy {
+}
+article.element .ionization-energy {
+}
+article.element .state {
+}
+
+article.element .discover-year,
+article.element .electron-affinity,
+article.element .melting-c,
+article.element .boiling-c,
+article.element .name-kanji {
+    display: none;
+}
+
+footer {
+    font-weight: normal;
+    color: white;
+}
+
+/*********** JP ************/
+html[data-mode=jp] #title {
+    letter-spacing: 5vh;
+    text-indent: 5vh;
+    font-family: source-han-sans-japanese;
+    font-weight: 500;
+}
+html[data-mode=jp] #legend-elements .element {
+    width: 10vw;
+}
+html[data-mode=jp] #legend-elements .title {
+    font-family: source-han-sans-japanese;
+    font-weight: 500;
+}
+html[data-mode=jp] #legend-elements .no,
+html[data-mode=jp] #legend-elements .symbol {
+}
+
+html[data-mode=jp] article.element .name {
+    font-size: min(1vh, 0.7vw);
+    font-weight: normal;
+    padding-top: 0.2vh;
+}
+html[lang=jp] article.label {
+    font-weight: bold;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title {
+    font-family: source-han-sans-japanese, sans-serif;
+    letter-spacing: 5vh;
+    text-indent: 5vh;
+    padding: 0;
+    font-weight: 500;
+}
+
+html[data-mode=kanji] #legend-elements .title {
+    font-family: source-han-sans-japanese;
+    font-weight: 500;
+}
+html[data-mode=kanji] #legend-elements .element {
+    width: 10vw;
+}
+
+html[data-mode=kanji] article.element .symbol {
+    display: inline-block;
+}
+
+html[data-mode=kanji] article.label {
+    font-family: source-han-serif-japanese, source-han-serif-tc, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    font-size: min(2vh, 1.5vw);
+    font-weight: 400;
+}
+
+html[data-mode=kanji] article.element .name {
+}
+html[data-mode=kanji] article.element .name-jp {
+    display: none;
+}
+
+html[data-mode=kanji] article.element .name-kanji svg {
+    width: min(1.2vh, 0.75vw);
+    height: min(1.2vh, 0.75vw);
+    margin-top: 0.05vh;
+}
+html[data-mode=kanji] article.element .name-kanji svg.weight-h {
+    display: none;
+}

@@ -17,8 +17,14 @@ const CONTEXT = {
     density: "Density",
     radius: "Van der Waals<br/>radius",
     meltingAt: "Melting point",
+    meltingAtC: "Melting point",
     boilingAt: "Boiling point",
+    boilingAtC: "Boiling point",
     electronConfig: "Electron configuration",
-    discoveredOn: "Discover year"
+    discoveredOn: "Discover year",
+    state: "Standard state",
+    solid: "Solid",
+    gas: "Gas",
+    liquid: "Liquid"
 }
 

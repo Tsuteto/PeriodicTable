@@ -17,8 +17,14 @@ const CONTEXT = {
     density: "標準状態密度",
     radius: "ファンデル<br/>ワールス半径",
     meltingAt: "融点",
+    meltingAtC: "融点",
     boilingAt: "沸点",
+    boilingAtC: "沸点",
     electronConfig: "電子配置",
-    discoveredOn: "発見年"
+    discoveredOn: "発見年",
+    state: "標準状態の相",
+    solid: "固体",
+    gas: "気体",
+    liquid: "液体"
 };
 

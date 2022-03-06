@@ -182,10 +182,10 @@ class PeriodicTable {
         cell.appendChild(this.createDiv(e.name.jp, "name name-jp"));
         cell.appendChild(this.createDiv(e.name.jpkana, "name name-jpkana"));
         if (e.no != 117 && e.no != 118) {
-            cell.appendChild(this.createDiv(e.name.zh, "name name-zh"));
+            cell.appendChild(this.createDiv(e.name.zh, "name name-kanji"));
         } else {
             let $elem = document.createElement("div");
-            $elem.className = "name name-zh";
+            $elem.className = "name name-kanji";
             ["h", "l"].forEach(w => {
                 let $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                 $svg.setAttribute("class", "weight-" + w);
@@ -202,8 +202,11 @@ class PeriodicTable {
         cell.appendChild(this.createDiv(this.dispIonization(e), "detail ionization-energy"));
         cell.appendChild(this.createDiv(this.dispDensity(e), "detail density"));
         cell.appendChild(this.createDiv(this.dispRadius(e), "detail radius"));
+        cell.appendChild(this.createDiv(this.dispState(e), "detail state"));
         cell.appendChild(this.createDiv(this.dispMeltingAt(e), "detail melting"));
+        cell.appendChild(this.createDiv(this.dispMeltingAtC(e), "detail melting-c"));
         cell.appendChild(this.createDiv(this.dispBoilingAt(e), "detail boiling"));
+        cell.appendChild(this.createDiv(this.dispBoilingAtC(e), "detail boiling-c"));
         cell.appendChild(this.createDiv(e.electronConfig.expr, "detail electron-config"));
         cell.appendChild(this.createDiv(e.discoveredOn, "detail discover-year"));
 
@@ -233,20 +236,20 @@ class PeriodicTable {
 
     dispElectronAffinity(e) {
         if (!e.electronAffinity) {
-            return "-"
+            return "&mdash;"
         } else {
             return e.electronAffinity;
         }
     }
     dispElectronegativity(e) {
         if (!e.electronegativity) {
-            return "-"
+            return "&mdash;"
         } else {
             return e.electronegativity;
         }
     }
     dispDensity(e) {
-        if (!e.density) return "-";
+        if (!e.density) return "&mdash;";
         let val, unit;
         if (e.state == State.GAS) {
             val = Math.floor(e.density * 1000 * 1000) / 1000;
@@ -259,30 +262,52 @@ class PeriodicTable {
     }
     dispRadius(e) {
         if (!e.radius) {
-            return "-"
+            return "&mdash;"
         } else {
             return e.radius + "pm";
         }
     }
     dispIonization(e) {
         if (!e.ionizationEnergy) {
-            return "-"
+            return "&mdash;"
         } else {
             return Number(e.ionizationEnergy).toPrecision(4) + "eV";
         }
     }
     dispMeltingAt(e) {
         if (!e.meltingAt) {
-            return "-"
+            return "&mdash;"
         } else {
-            return e.meltingAt + "℃";
+            return e.meltingAt + "K";
+        }
+    }
+    dispMeltingAtC(e) {
+        if (!e.meltingAt) {
+            return "&mdash;"
+        } else {
+            return (e.meltingAt - 273.15).toPrecision(4) + "℃";
         }
     }
     dispBoilingAt(e) {
         if (!e.boilingAt) {
-            return "-"
+            return "&mdash;"
         } else {
-            return e.boilingAt + "℃";
+            return e.boilingAt + "K";
+        }
+    }
+    dispBoilingAtC(e) {
+        if (!e.boilingAt) {
+            return "&mdash;"
+        } else {
+            return (e.boilingAt - 273.15).toPrecision(4) + "℃";
+        }
+    }
+    dispState(e) {
+        switch (e.state) {
+            case State.SOLID: return CONTEXT.solid;
+            case State.GAS: return CONTEXT.gas;
+            case State.LIQUID: return CONTEXT.liquid;
+            default: return "&mdash;";
         }
     }
 
@@ -346,14 +371,18 @@ class PeriodicTable {
         $cell.appendChild(this.createDiv(CONTEXT.name.en, "name name-en"));
         $cell.appendChild(this.createDiv(CONTEXT.name.jp, "name name-jp"));
         $cell.appendChild(this.createDiv(CONTEXT.name.jpkana, "name name-jpkana"));
+        $cell.appendChild(this.createDiv(CONTEXT.name.kanji, "name name-kanji"));
         $cell.appendChild(this.createDiv(CONTEXT.mass, "detail mass"));
         $cell.appendChild(this.createDiv(CONTEXT.electronAffinity, "detail electron-affinity"));
         $cell.appendChild(this.createDiv(CONTEXT.electronegativity, "detail electronegativity"));
         $cell.appendChild(this.createDiv(CONTEXT.ionizationEnergy, "detail ionization-energy"));
         $cell.appendChild(this.createDiv(CONTEXT.density, "detail density"));
         $cell.appendChild(this.createDiv(CONTEXT.radius, "detail radius"));
+        $cell.appendChild(this.createDiv(CONTEXT.state, "detail state"));
         $cell.appendChild(this.createDiv(CONTEXT.meltingAt, "detail melting"));
+        $cell.appendChild(this.createDiv(CONTEXT.meltingAtC, "detail melting-c"));
         $cell.appendChild(this.createDiv(CONTEXT.boilingAt, "detail boiling"));
+        $cell.appendChild(this.createDiv(CONTEXT.boilingAtC, "detail boiling-c"));
         $cell.appendChild(this.createDiv(CONTEXT.electronConfig, "detail electron-config"));
         $cell.appendChild(this.createDiv(CONTEXT.discoveredOn, "detail discover-year"));
 
@@ -424,7 +453,7 @@ class State {
     static GAS = new State("state-gas");
     static SOLID = new State("state-solid");
     static LIQUID = new State("state-liquid");
-    static UNKNOWN = new Group("state-unknown");
+    static UNKNOWN = new State("state-unknown");
 
     constructor(className) {
         this.className = className;
@@ -461,7 +490,7 @@ const ELEMENT_DATA = [
     {no: 27, symbol: "Co", name: {en: "Co&shy;balt", jp: "コバルト", jpkana: "コバルト", zh: "鈷"}, group: Group.TRANSITION_METAL, block: "d", mass: "58.93", state: State.SOLID, electronAffinity: "64", electronegativity: "1.88", ionizationEnergy: "7.881", density: "8.86", radius: "192", meltingAt: "1768", boilingAt: "3200", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>7</sup>", list: [2, 2, 6, 2, 6, 7, 2]}, isSynthetic: false, discoveredOn: "1735"},
     {no: 28, symbol: "Ni", name: {en: "Nick&shy;el", jp: "ニッケル", jpkana: "ニッケル", zh: "鎳"}, group: Group.TRANSITION_METAL, block: "d", mass: "58.69", state: State.SOLID, electronAffinity: "112", electronegativity: "1.91", ionizationEnergy: "7.64", density: "8.912", radius: "163", meltingAt: "1728", boilingAt: "3186", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>8</sup>", list: [2, 2, 6, 2, 6, 8, 2]}, isSynthetic: false, discoveredOn: "1751"},
     {no: 29, symbol: "Cu", name: {en: "Cop&shy;per", jp: "銅", jpkana: "どう", zh: "銅"}, group: Group.TRANSITION_METAL, block: "d", mass: "63.55", state: State.SOLID, electronAffinity: "119", electronegativity: "1.90", ionizationEnergy: "7.726", density: "8.933", radius: "140", meltingAt: "1357.77", boilingAt: "2835", electronConfig: {expr: "[Ar] 4s<sup>1</sup> 3d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 1]}, isSynthetic: false, discoveredOn: "Ancient"},
-    {no: 30, symbol: "Zn", name: {en: "Zinc", jp: "亜鉛", jpkana: "あえん", zh: "鋅"}, group: Group.TRANSITION_METAL, block: "d", mass: "65.38", state: State.SOLID, electronAffinity: "< 0", electronegativity: "1.65", ionizationEnergy: "9.394", density: "7.134", radius: "139", meltingAt: "692.68", boilingAt: "1180", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 2]}, isSynthetic: false, discoveredOn: "1746"},
+    {no: 30, symbol: "Zn", name: {en: "Zinc", jp: "亜鉛", jpkana: "あえん", zh: "鋅"}, group: Group.OTHER_METAL, block: "d", mass: "65.38", state: State.SOLID, electronAffinity: "< 0", electronegativity: "1.65", ionizationEnergy: "9.394", density: "7.134", radius: "139", meltingAt: "692.68", boilingAt: "1180", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 2]}, isSynthetic: false, discoveredOn: "1746"},
     {no: 31, symbol: "Ga", name: {en: "Gal&shy;li&shy;um", jp: "ガリウム", jpkana: "ガリウム", zh: "鎵"}, group: Group.OTHER_METAL, block: "p", mass: "69.72", state: State.SOLID, electronAffinity: "41", electronegativity: "1.81", ionizationEnergy: "5.999", density: "5.91", radius: "187", meltingAt: "302.91", boilingAt: "2477", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>1</sup>", list: [2, 2, 6, 2, 6, 10, 2, 1]}, isSynthetic: false, discoveredOn: "1875"},
     {no: 32, symbol: "Ge", name: {en: "Ger&shy;ma&shy;ni&shy;um", jp: "ゲルマニウム", jpkana: "ゲルマニウム", zh: "鍺"}, group: Group.METALLOID, block: "p", mass: "72.63", state: State.SOLID, electronAffinity: "119", electronegativity: "2.01", ionizationEnergy: "7.9", density: "5.323", radius: "211", meltingAt: "1211.4", boilingAt: "3106", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>2</sup>", list: [2, 2, 6, 2, 6, 10, 2, 2]}, isSynthetic: false, discoveredOn: "1886"},
     {no: 33, symbol: "As", name: {en: "Ar&shy;se&shy;nic", jp: "ヒ素", jpkana: "ヒそ", zh: "砷"}, group: Group.METALLOID, block: "p", mass: "74.92", state: State.SOLID, electronAffinity: "79", electronegativity: "2.18", ionizationEnergy: "9.815", density: "5.776", radius: "185", meltingAt: "1090", boilingAt: "887", electronConfig: {expr: "[Ar] 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>3</sup>", list: [2, 2, 6, 2, 6, 10, 2, 3]}, isSynthetic: false, discoveredOn: "Ancient"},
@@ -511,7 +540,7 @@ const ELEMENT_DATA = [
     {no: 77, symbol: "Ir", name: {en: "I&shy;ri&shy;di&shy;um", jp: "イリジウム", jpkana: "イリジウム", zh: "銥"}, group: Group.TRANSITION_METAL, block: "d", mass: "192.2", state: State.SOLID, electronAffinity: "150", electronegativity: "2.20", ionizationEnergy: "9.1", density: "22.42", radius: "202", meltingAt: "2719", boilingAt: "4701", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>7</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 7, 0, 0, 2]}, isSynthetic: false, discoveredOn: "1803"},
     {no: 78, symbol: "Pt", name: {en: "Plat&shy;i&shy;num", jp: "白金", jpkana: "はっきん", zh: "鉑"}, group: Group.TRANSITION_METAL, block: "d", mass: "195.1", state: State.SOLID, electronAffinity: "205", electronegativity: "2.28", ionizationEnergy: "9", density: "21.46", radius: "209", meltingAt: "2041.55", boilingAt: "4098", electronConfig: {expr: "[Xe] 6s<sup>1</sup> 4f<sup>14</sup> 5d<sup>9</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 9, 0, 0, 1]}, isSynthetic: false, discoveredOn: "1735"},
     {no: 79, symbol: "Au", name: {en: "Gold", jp: "金", jpkana: "きん", zh: "金"}, group: Group.TRANSITION_METAL, block: "d", mass: "197.0", state: State.SOLID, electronAffinity: "223", electronegativity: "2.54", ionizationEnergy: "9.226", density: "19.282", radius: "166", meltingAt: "1337.33", boilingAt: "3129", electronConfig: {expr: "[Xe] 6s<sup>1</sup> 4f<sup>14</sup> 5d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 1]}, isSynthetic: false, discoveredOn: "Ancient"},
-    {no: 80, symbol: "Hg", name: {en: "Mer&shy;cu&shy;ry", jp: "水銀", jpkana: "すいぎん", zh: "汞"}, group: Group.OTHER_METAL, block: "d", mass: "200.6", state: State.SOLID, electronAffinity: "< 0", electronegativity: "2.00", ionizationEnergy: "10.438", density: "13.5336", radius: "209", meltingAt: "234.32", boilingAt: "629.88", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 2]}, isSynthetic: false, discoveredOn: "Ancient"},
+    {no: 80, symbol: "Hg", name: {en: "Mer&shy;cu&shy;ry", jp: "水銀", jpkana: "すいぎん", zh: "汞"}, group: Group.OTHER_METAL, block: "d", mass: "200.6", state: State.LIQUID, electronAffinity: "< 0", electronegativity: "2.00", ionizationEnergy: "10.438", density: "13.5336", radius: "209", meltingAt: "234.32", boilingAt: "629.88", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 2]}, isSynthetic: false, discoveredOn: "Ancient"},
     {no: 81, symbol: "Tl", name: {en: "Thal&shy;li&shy;um", jp: "タリウム", jpkana: "タリウム", zh: "鉈"}, group: Group.OTHER_METAL, block: "p", mass: "204.4", state: State.SOLID, electronAffinity: "36", electronegativity: "1.62", ionizationEnergy: "6.108", density: "11.8", radius: "196", meltingAt: "577", boilingAt: "1746", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup> 6p<sup>1</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 2, 1]}, isSynthetic: false, discoveredOn: "1861"},
     {no: 82, symbol: "Pb", name: {en: "Lead", jp: "鉛", jpkana: "なまり", zh: "鉛"}, group: Group.OTHER_METAL, block: "p", mass: "207.2", state: State.SOLID, electronAffinity: "35", electronegativity: "2.33", ionizationEnergy: "7.417", density: "11.342", radius: "202", meltingAt: "600.61", boilingAt: "2022", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup> 6p<sup>2</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 2, 2]}, isSynthetic: false, discoveredOn: "Ancient"},
     {no: 83, symbol: "Bi", name: {en: "Bis&shy;muth", jp: "ビスマス", jpkana: "ビスマス", zh: "鉍"}, group: Group.OTHER_METAL, block: "p", mass: "209.0", state: State.SOLID, electronAffinity: "91", electronegativity: "2.02", ionizationEnergy: "7.289", density: "9.807", radius: "207", meltingAt: "544.55", boilingAt: "1837", electronConfig: {expr: "[Xe] 6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup> 6p<sup>3</sup>", list: [2, 2, 6, 2, 6, 10, 2, 6, 10, 14, 2, 6, 10, 0, 0, 2, 3]}, isSynthetic: false, discoveredOn: "1753"},
