@@ -1,4 +1,6 @@
 # PeriodicTable
+<img width="800" src="https://tsuteto.github.io/PeriodicTable/wallpapers/square-thumb.png">
+
 化学の元素周期表を題材にCSSのデザインをいろいろ試しています。  
 JSに元素の情報を持たせてDOMを生成してCSSで味付け。Gridデザインで並び順を定義できるのいいですね（静的なものに限る）。  
 I'm trying various CSS designs themed on the periodic table of the chemical elements.  
