@@ -190,7 +190,7 @@ class PeriodicTable {
                 let $svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                 $svg.setAttribute("class", "weight-" + w);
                 let $use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                $use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", `./${e.symbol}-kanji-${w}.svg#body`);
+                $use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", `assets/${e.symbol}-kanji-${w}.svg#body`);
                 $svg.appendChild($use);
                 $elem.appendChild($svg);
             });
