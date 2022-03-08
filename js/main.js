@@ -25,17 +25,17 @@ var query = (function() {
 
     let skinLink = document.createElement("link");
     skinLink.rel = "stylesheet";
-    skinLink.href = `./skin-${skin}.css`;
+    skinLink.href = `css/skin-${skin}.css`;
     $head.appendChild(skinLink);
 
     let $script;
 
     $script = document.createElement("script");
-    $script.src = `./skin-${skin}.js`;
+    $script.src = `js/skin-${skin}.js`;
     $head.appendChild($script);
 
     $script = document.createElement("script");
-    $script.src = `./context_${mode}.js`;
+    $script.src = `js/context_${mode}.js`;
     $head.appendChild($script);
 
     return query;
