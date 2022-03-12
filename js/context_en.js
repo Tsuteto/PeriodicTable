@@ -1,4 +1,4 @@
-const CONTEXT = {
+const DEFAULT_CONTEXT = {
     title: "Periodic Table of the Elements",
     lanthanoid: "Lan&shy;tha&shy;nides",
     actinoid: "Ac&shy;ti&shy;nides",

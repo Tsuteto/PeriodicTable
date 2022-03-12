@@ -170,7 +170,7 @@ article.element .no {
     font-weight: bold;
     text-align: right;
 }
-article.element .symbol {
+article.element .symbol-std {
     display: inline-block;
     position: relative;
     font-size: calc(min(2.4vh, 1.8vw));
@@ -220,6 +220,7 @@ article.element .discover-year,
 article.element .electron-affinity,
 article.element .melting-c,
 article.element .boiling-c,
+article.element .electron-config-shell,
 article.element .name-kanji {
     display: none;
 }
@@ -243,8 +244,8 @@ html[data-mode=jp] #legend-elements .title {
     font-family: source-han-sans-japanese;
     font-weight: 500;
 }
-html[data-mode=jp] #legend-elements .no,
-html[data-mode=jp] #legend-elements .symbol {
+html[data-mode=jp] #legend-elements .no::before {
+    content: "元素";
 }
 
 html[data-mode=jp] article.element .name {
@@ -257,6 +258,10 @@ html[lang=jp] article.label {
 }
 
 /*********** KANJI ************/
+html[data-mode=kanji] body {
+    font-feature-settings: "trad";
+}
+
 html[data-mode=kanji] #title {
     font-family: source-han-sans-japanese, sans-serif;
     letter-spacing: 5vh;
@@ -272,8 +277,11 @@ html[data-mode=kanji] #legend-elements .title {
 html[data-mode=kanji] #legend-elements .element {
     width: 10vw;
 }
+html[data-mode=kanji] #legend-elements .no::before {
+    content: "元素";
+}
 
-html[data-mode=kanji] article.element .symbol {
+html[data-mode=kanji] article.element .symbol-std {
     display: inline-block;
 }
 
@@ -288,15 +296,19 @@ html[data-mode=kanji] article.label .label-actinoid {
 
 html[data-mode=kanji] article.element .name {
 }
+html[data-mode=kanji] article.element .name-kanji {
+    display: block;
+}
 html[data-mode=kanji] article.element .name-jp {
     display: none;
 }
 
 html[data-mode=kanji] article.element .name-kanji svg {
+    display: none;
     width: min(1.2vh, 0.75vw);
     height: min(1.2vh, 0.75vw);
     margin-top: 0.05vh;
 }
-html[data-mode=kanji] article.element .name-kanji svg.weight-h {
-    display: none;
+html[data-mode=kanji] article.element .name-kanji svg.font-sans.weight-l {
+    display: inline-block;
 }

@@ -37,11 +37,11 @@
 .label-group {
     margin-bottom: 0.5vh;
     text-align: center;
-    font-size: calc(min(1.5vh, 1vw));
+    font-size: min(1.5vh, 1vw);
 }
 .label-period {
     text-align: center;
-    font-size: calc(min(1.5vh, 1vw));
+    font-size: min(1.5vh, 1vw);
 }
 
 article {
@@ -52,7 +52,7 @@ article.label {
     border-radius: 2vmin;
     border: 0.4vw solid transparent;
     background-color: transparent;
-    font-size: calc(min(1.5vh, 0.8vw));
+    font-size: min(1.5vh, 0.8vw);
     font-weight: 900;
 }
 article.label .label-lanthanoid,
@@ -141,7 +141,8 @@ html[data-mode=kanji] article.label .label-actinoid {
     font-size: calc(min(3vh, 1.8vw));
 }
 
-html[data-mode=kanji] article.element .name-kanji {
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: block;
     top: calc(50% - min(2vh, 1.25vw));
     font-size: calc(min(4vh, 2.5vw));
 
@@ -149,11 +150,9 @@ html[data-mode=kanji] article.element .name-kanji {
     font-weight: 900;
     font-style: normal;
 }
-html[data-mode=kanji] article.element .name-kanji svg {
+html[data-mode=kanji] article.element .symbol-kanji svg.font-sans.weight-h {
+    display: inline-block;
     width: calc(min(3.9vh, 2.3vw));
     height: calc(min(3.9vh, 2.3vw));
-    margin-top: 0.3vmin;
-}
-html[data-mode=kanji] article.element .name-kanji svg.weight-l {
-    display: none;
+    margin-top: 0.2vmin;
 }

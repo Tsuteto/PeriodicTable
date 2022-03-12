@@ -195,9 +195,10 @@ article.element div {
     transform-origin: left;
 }
 
-article.element .name-jp {
-    display: none;
-}
+
+article.element .symbol-kanji,
+article.element .symbol-kanji svg,
+article.element .name-jp,
 article.element .name-kanji,
 article.element .name-jpkana {
     display: none;
@@ -224,6 +225,9 @@ article.element .electron-config {
 }
 article.element .electron-config sup {
     vertical-align: 20%;
+}
+article.element .electron-config-shell {
+    grid-area: e-conf-sh;
 }
 article.element .ionization-energy {
     grid-area: ion;
@@ -304,10 +308,6 @@ html[data-mode=jp] article.element .name-en {
 /*********** KANJI ************/
 html[data-mode=kanji] article.element .symbol {
     display: none;
-}
-
-html[data-mode=kanji] article.element .name-kanji {
-    display: block;
 }
 html[data-mode=kanji] article.element .name-jp {
     display: block;

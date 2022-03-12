@@ -1,9 +1,9 @@
-const CONTEXT = {
+const DEFAULT_CONTEXT = {
     title: "元素周期表",
     lanthanoid: "ランタノイド",
     actinoid: "アクチノイド",
     legend: "凡例",
-    no: "元素番号",
+    no: "番号",
     symbol: "記号",
     name: {
         en: "英語名",

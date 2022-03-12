@@ -197,19 +197,20 @@ html[data-mode=kanji] #title::before {
     content: "";
 }
 
-html[data-mode=kanji] article.element .name-kanji {
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: block;
     font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
     font-weight: 900;
     top: calc(45% - min(1.8vh, 1.2vw));
     font-size: calc(min(3.6vh, 2.4vw));
 }
-html[data-mode=kanji] article.element .name-kanji svg {
+html[data-mode=kanji] article.element .symbol-kanji svg {
     width: calc(min(3.5vh, 2.2vw));
     height: calc(min(3.5vh, 2.2vw));
     margin-top: 0.2vmin;
 }
-html[data-mode=kanji] article.element .name-kanji svg.weight-l {
-    display: none;
+html[data-mode=kanji] article.element .symbol-kanji svg.font-sans.weight-h {
+    display: inline-block;
 }
 html[data-mode=kanji] article.label {
     font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;

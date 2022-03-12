@@ -152,20 +152,21 @@ html[data-mode=kanji] #title {
     text-indent: 3vw;
 }
 
-html[data-mode=kanji] article.element .name-kanji {
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: block;
     font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
     font-weight: 100;
     font-style: normal;
     top: calc(45% - min(1.5vh, 1.2vw));
     font-size: calc(min(3vh, 2.4vw));
 }
-html[data-mode=kanji] article.element .name-kanji svg {
+html[data-mode=kanji] article.element .symbol-kanji svg {
     width: calc(min(2.9vh, 2.2vw));
     height: calc(min(2.9vh, 2.2vw));
     margin-top: 0.1vh;
 }
-html[data-mode=kanji] article.element .name-kanji svg.weight-h {
-    display: none;
+html[data-mode=kanji] article.element .symbol-kanji svg.font-sans.weight-l {
+    display: inline-block;
 }
 html[data-mode=kanji] article.label {
     font-family: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
