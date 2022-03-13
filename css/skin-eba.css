@@ -1,0 +1,532 @@
+:root {
+    --font-default: SourceHanSerif, SourceHanSerifJP, "源ノ明朝", "源ノ明朝 JP", source-han-serif-japanese, serif;
+    --font-kanji: SourceHanSerif, SourceHanSerifJP, "源ノ明朝", "源ノ明朝 JP", source-han-serif-japanese, source-han-serif-traditional, serif;
+    --font-sans: "Swiss 721 BT", "Helvetica Neue", "Arial Nova", sans-serif;
+    --text-color: #f5db48;
+    --text-color-base: #f5db48;
+    --text-color-red: #ad0808;
+
+    --bgcolor-alkali-metal: #ff3e1c;
+    --bgcolor-alkali-earth-metal: #ff821b;
+    --bgcolor-transition-metal: #ffb411;
+    --bgcolor-other-metal: #b0ff67;
+    --bgcolor-lanthanoid: #ff51d9;
+    --bgcolor-actinoid: #b647f7;
+    --bgcolor-metalloid: #2dff9d;
+
+    --bgcolor-other-nonmetal: #6afff8;
+    --bgcolor-halogen: #00aeff;
+    --bgcolor-noble-gas: #5c74ff;
+
+    --bgcolor-unknown: #ddddec;
+
+    --column-gap: 0.4vw;
+    --row-gap: 0.6vh;
+
+    --table-lant:
+        "... ... ... lant e57 e58 e59 e60 e61 e62 e63 e64 e65 e66 e67 e68 e69 e70 e71";
+    --table-acti:
+        "... ... ... acti e89 e90 e91 e92 e93 e94 e95 e96 e97 e98 e99 e100 e101 e102 e103";
+}
+
+body {
+    background-color: black;
+}
+
+#title {
+    position: absolute;
+    text-align: left;
+    font-weight: 900;
+    font-size: min(6.5vw, 10vh);
+    width: var(--title-width);
+    border: 0.6vmin solid var(--text-color-base);
+    top: 5vh;
+    padding: 1vh 1vw 1vh 4vw;
+    background-image:
+        repeating-linear-gradient(45deg, transparent 0% 25%, var(--text-color-red) 25% 50%, transparent 50% 75%, var(--text-color-red) 75% 100%);
+    background-size: 3.5vw 3.5vw;
+    background-repeat: repeat-y;
+    background-origin: border-box;
+    color: var(--text-color-base);
+}
+
+.title-left {
+    position: absolute;
+    left: 17vw;
+    top: 5vh;
+    border: 0.2vmin solid var(--text-color-base);
+    font-weight: 900;
+}
+
+#legend-elements {
+    display: grid;
+    grid-template-areas: "title classification" "element classification";
+    left: 15vw;
+    top: 17vh;
+    border: 0.2vmin solid var(--text-color-base);
+}
+#legend-elements .title {
+    grid-area: title;
+    margin-bottom: 0.5vh;
+    text-align: left;
+    font-size: calc(min(2vh, 3vw));
+    font-weight: 900;
+}
+#legend-elements .element {
+    grid-area: element;
+    width: min(7vw, 10vh);
+    --bg-color: var(--text-color-base);
+    margin: 0.5vh 1vw 1.5vh;
+}
+#legend-elements .element * {
+    font-family: var(--font-default);
+    font-weight: 900;
+}
+#legend-elements .no {
+    font-size: 1.5vmin;
+    top: 0;
+}
+#legend-elements .mass {
+    width: 0.7vw;
+}
+
+#legend-elements .electron-config-shell {
+    width: 0.7vw;
+    writing-mode: vertical-lr;
+    text-align: left;
+}
+
+#legend-elements .legend-class {
+    display: block;
+    grid-area: classification;
+    align-self: center;
+    margin-right: 0.5vw;
+    font-size: min(calc(1.1vw * 9 / 16), 1.1vh);
+    font-family: var(--font-default);
+    font-weight: 900;
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+}
+#legend-elements .legend-class .color {
+    display: inline-block;
+    border: 0.2vmin solid var(--bg-color);
+    width: 0.7vw;
+    height: 0.8em;
+    margin-right: 0.2vw;
+}
+#legend-elements .legend-class .name {
+    display: inline-block;
+    transform: scaleX(0.8);
+    transform-origin: left;
+}
+.tables {
+    padding-top: 4vh;
+}
+
+#table-main {
+    grid-template-areas: var(--table-main-gp);
+    grid-template-columns: 1.2vw;
+    grid-auto-columns: 1fr;
+    margin-bottom: 3vh;
+}
+#table-lanthanoid {
+    grid-template-columns: 1.2vw;
+    grid-auto-columns: 1fr;
+}
+
+#table-actinoid {
+    grid-template-columns: 1.2vw;
+    grid-auto-columns: 1fr;
+}
+
+.label-group {
+    display: block;
+    position: relative;
+    border-right: 0.4vh solid var(--text-color-base);
+    padding-right: 0.1vw;
+    text-align: right;
+    font-family: var(--font-sans);
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: calc(min(1.8vh, 1.2vw));
+    justify-self: stretch;
+    width: 100%;
+    height: 1em;
+}
+.label-group :nth-child(1) {
+}
+.label-group :nth-child(1):before {
+    content: "GROUP-";
+    font-size: calc(min(1.2vh, 0.8vw));
+}
+.label-group :nth-child(2) {
+    display: none;
+}
+.label-period {
+    display: block;
+    padding-bottom: 0.1vw;
+    font-family: var(--font-sans);
+    font-stretch: condensed;
+    font-size: calc(min(1.8vh, 1.2vw));
+    font-weight: bold;
+    align-self: end;
+    border-bottom: 0.4vh solid var(--text-color-base);
+    justify-self: stretch;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+}
+.label-period div {
+    transform-origin: center bottom;
+}
+.label-period div::before {
+    content: "PERIOD-";
+    font-size: calc(min(1.2vh, 0.8vw));
+}
+
+article {
+    color: var(--bg-color);
+}
+
+#table-main article.label.lanthanoid,
+#table-main article.label.actinoid {
+
+    font-size: min(3vh, 1.6vw);
+    font-weight: 900;
+    height: 90%;
+    align-self: center;
+    background-color: black;
+    border-bottom: 0.5vh solid var(--bg-color);
+}
+#table-main article.label.lanthanoid::before,
+#table-main article.label.actinoid::before,
+#table-main article.label.lanthanoid::after,
+#table-main article.label.actinoid::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 25%;
+    width: 100%;
+
+    background-image:
+        repeating-linear-gradient(60deg, transparent 0% 25%, var(--bg-color) 25% 50%, transparent 50% 75%, var(--bg-color) 75% 100%);
+    background-size: 1.2vmin 2vmin;
+    background-repeat: repeat;
+    background-origin: border-box;
+    margin-top: 0.4vh;
+    margin-bottom: 0.4vh;
+}
+#table-main article.label.lanthanoid::after,
+#table-main article.label.actinoid::after {
+}
+
+article.label::before {
+    align-self: start;
+}
+article.label::after {
+    align-self: end;
+}
+
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    width: 100%;
+    text-align: center;
+    font-feature-settings: "palt" 1;
+    padding-bottom: 0.4vh;
+}
+#table-lanthanoid article.lanthanoid.label div,
+#table-actinoid article.actinoid.label div {
+    display: none;
+}
+#table-lanthanoid article.lanthanoid.label {
+    position: relative;
+    border-right: 0.3vw solid var(--bg-color);
+}
+#table-lanthanoid article.lanthanoid.label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: calc(205% + 3vh + var(--row-gap));
+    width: 100%;
+    background-color: var(--bg-color);
+    clip-path: polygon(60% 0%, 60% 72%, 80% 80%, 100% 80%,
+        100% 79%, 80.5% 79%, 62% 71.5%, 62% 0%);
+    z-index: -1;
+    align-self: end;
+}
+#table-actinoid article.actinoid.label {
+    position: relative;
+    border-right: 0.3vw solid var(--bg-color);
+}
+#table-actinoid article.actinoid.label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: calc(205% + 3vh + var(--row-gap));
+    width: 100%;
+    background-color: var(--bg-color);
+    clip-path: polygon(40% 0%, 40% 72%, 60% 80%, 100% 80%,
+        100% 79%, 60.5% 79%, 42% 71.5%, 42% 0%);
+    z-index: -1;
+    align-self: end;
+}
+
+article.element {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    height: 9vh;
+}
+article.element::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(
+        0% 17%, 28.5% 17%, 38.5% 0%, 100% 0%, 100% 100%, /*100% 90%, 90% 100%,*/ 0 100%,
+        0 98%, 89% 98%, 98% 89%, 98% 2%, 40% 2%, 30% 19%,
+        48% 19%, 57.5% 3.5%, 50.5% 3.5%, 41% 19%, 
+        39% 19%, 48.5% 3.5%, 41% 3.5%, 32% 19%,
+        2% 19%, 2% 98%, 0 98%);
+    background-color: var(--bg-color);
+}
+
+#legend-elements .title {
+    margin-bottom: 0.5vh;
+    text-align: left;
+    font-size: calc(min(2vh, 3vw));
+    font-weight: 900;
+}
+
+article.element .no {
+    position: absolute;
+    text-align: center;
+    font-family: var(--font-sans);
+    top: -0.25vh;
+    font-size: 2vmin;
+    color: var(--bg-color);
+    width: 30%;
+}
+article.element .no::before {
+    content: "";
+}
+
+article.element .symbol {
+    position: absolute;
+    top: calc(50% - min(1.65vh, 0.9vw));
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(3.3vh, 1.8vw);
+    transform-origin: left;
+}
+article.element .name {
+    position: absolute;
+    bottom: 7%;
+    left: 15%;
+    width: 70%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+    transform-origin: left;
+}
+article.element .name-jp {
+    font-family: var(--font-default);
+    letter-spacing: -0.05vmin;
+    font-weight: 900;
+}
+article.element .name-zh,
+article.element .name-jpkana {
+    display: none;
+}
+
+article.element .mass {
+    display: block;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+    bottom: 16%;
+    text-align: center;
+    transform-origin: center left;
+    font-size: min(1.2vh, 0.8vw);
+    writing-mode: vertical-rl;
+}
+
+article.element .electron-config-shell {
+    display: block;
+    position: absolute;
+    top: 0.2vw;
+    right: 0.2vw;
+    height: 100%;
+    width: 1.1em;
+    text-align: right;
+    font-size: min(1vh, 0.75vw);
+}
+
+footer {
+    font-family: var(--font-default);
+    position: absolute;
+    bottom: 0.5vh;
+    right: 0.5vw;
+    font-size: 1.2vmin;
+}
+
+/*********** EN ************/
+
+html[data-mode=en] #title {
+    margin-bottom: 0.5vh;
+    text-align: left;
+    font-weight: 900;
+    left: 33vw;
+    text-align: center;
+    width: 32vw;
+    white-space: nowrap;
+}
+html[data-mode=en] #title :nth-child(1) {
+    font-size: min(calc(10vw * 9 / 16), 10vh);
+    transform-origin: left;
+}
+html[data-mode=en] #title :nth-child(2) {
+    font-size: min(calc(7vw * 9 / 16), 7vh);
+    transform: scaleY(0.6);
+    line-height: 0.6em;
+}
+html[data-mode=en] #title :nth-child(3) {
+    font-size: min(calc(7vw * 9 / 16), 7vh);
+    transform-origin: left;
+}
+html[data-mode=en] .title-left {
+    width: 16vw;
+    left: 15vw;
+    padding: 0.2vh 0.5vw 0.5vh;
+}
+html[data-mode=en] .title-left div:nth-child(1) {
+    transform-origin: left;
+    font-size: min(calc(7vw * 9 / 16), 7vh);
+    white-space: nowrap;
+}
+html[data-mode=en] .title-left div:nth-child(2) {
+    transform-origin: left;
+    font-size: min(calc(2vw * 9 / 16), 2vh);
+    white-space: nowrap;
+}
+html[data-mode=en] #legend-elements {
+    width: 16vw;
+    grid-template-columns: 1.2fr 1fr;
+}
+html[data-mode=en] #legend-elements .symbol {
+    transform: scaleX(0.5);
+    transform-origin: left;
+    width: 2em;
+    top: calc(50% - min(1.5vh, 1vw));
+    left: calc(50% - 1em);
+    white-space: normal;
+    font-size: min(3vh, 2vw);
+}
+
+html[data-mode=en] article.element .name {
+    font-stretch: condensed;
+}
+
+html[data-mode=en] #legend-elements .mass {
+    top: 19%;
+    left: 3%;
+    bottom: 2%;
+    font-size: min(1vh, 0.68vw);
+}
+html[data-mode=en] #legend-elements .electron-config-shell {
+    font-size: min(1vh, 0.68vw);
+}
+
+html[data-mode=en] #legend-elements .legend-class {
+    width: 6vw;
+}
+
+/*********** JP/KANJI ************/
+html[data-mode=jp] #title,
+html[data-mode=kanji] #title {
+    --title-width: auto;
+    left: 32vw;
+}
+html[data-mode=jp] .title-left,
+html[data-mode=kanji] .title-left {
+    padding: 0.3vh 0.2vw 0.5vh;
+}
+html[data-mode=jp] .title-left div:nth-child(1),
+html[data-mode=kanji] .title-left div:nth-child(1) {
+        font-size: min(4vw, 6vh);
+}
+html[data-mode=jp] .title-left div:nth-child(2),
+html[data-mode=kanji] .title-left div:nth-child(2) {
+    margin-top: 0.5vh;
+    font-size: min(calc(4vw * 3 / 11), calc(6vh * 3 / 11));
+    height: 0.8em;
+    line-height: 0.8;
+    transform: scaleY(0.8);
+}
+
+html[data-mode=jp] #legend-elements,
+html[data-mode=kanji] #legend-elements {
+    left: 16vw;
+}
+html[data-mode=jp] #legend-elements .symbol::before,
+html[data-mode=kanji] #legend-elements .symbol::before {
+    content: "元素";
+}
+html[data-mode=jp] #title::after,
+html[data-mode=kanji] #title::after {
+    content: "Periodic Table of the Chemical Elements";
+    display: block;
+    font-size: min(1.25vw, 1.9vh);
+    margin-top: 1vh;
+}
+
+html[data-mode=jp] #legend-elements .symbol,
+html[data-mode=kanji] #legend-elements .symbol {
+    transform: scaleY(0.7);
+    transform-origin: top;
+    width: 2em;
+    top: calc(50% - min(1.5vh, 1vw) - 0.2em);
+    left: calc(50% - 1em);
+    white-space: normal;
+    font-size: min(3vh, 2vw);
+}
+html[data-mode=jp] #legend-elements .mass,
+html[data-mode=kanji] #legend-elements .mass {
+    font-size: 0.8vw;
+}
+html[data-mode=jp] #legend-elements .electron-config-shell,
+html[data-mode=kanji] #legend-elements .electron-config-shell {
+    font-size: 0.8vw;
+    right: 0.1vw;
+}
+
+html[data-mode=jp] #legend-elements .legend-class,
+html[data-mode=kanji] #legend-elements .legend-class {
+    width: 4.5vw;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] article.label {
+    font-family: var(--font-kanji);
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    font-size: calc(min(2.4vh, 1.6vw));
+    width: auto;
+    transform-origin: left;
+}
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: block;
+    font-family: var(--font-kanji);
+    font-weight: 900;
+    font-style: normal;
+}
+html[data-mode=kanji] article.element .symbol-kanji svg {
+    width: min(3.3vh, 1.8vw);
+    height: min(3.3vh, 1.8vw);
+    margin-top: 0.1vmin;
+}
+html[data-mode=kanji] article.element .symbol-kanji svg.font-serif.weight-h {
+    display: inline-block;
+}

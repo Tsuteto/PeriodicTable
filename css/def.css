@@ -110,6 +110,9 @@ header {
     display: none;
     position: absolute;
 }
+#legend-elements .legend-class {
+    display: none;
+}
 
 #table-main {
     display: grid;

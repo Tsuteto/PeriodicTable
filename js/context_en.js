@@ -25,6 +25,19 @@ const DEFAULT_CONTEXT = {
     state: "Standard state",
     solid: "Solid",
     gas: "Gas",
-    liquid: "Liquid"
+    liquid: "Liquid",
+    classification: {
+        alkaliMetal: "Alkali metal",
+        alkaliEarthMetal: "Alkali earth metal",
+        transitionMetal: "Transition metal",
+        otherMetal: "Other metal",
+        metalloid: "Metalloid",
+        lanthanoid: "Lanthanide",
+        actinoid: "Actinide",
+        otherNonmetal: "Other non-metal",
+        halogen: "Halogen",
+        nobleGas: "Noble gas",
+        unknown: "Unknown"
+    }
 }
 

@@ -27,6 +27,19 @@ const DEFAULT_CONTEXT = {
     state: "標準状態の相",
     solid: "固体",
     gas: "気体",
-    liquid: "液体"
+    liquid: "液体",
+    classification: {
+        alkaliMetal: "アルカリ金属",
+        alkaliEarthMetal: "アルカリ土類金属",
+        transitionMetal: "遷移金属",
+        otherMetal: "その他の金属",
+        metalloid: "半金属",
+        lanthanoid: "ランタノイド",
+        actinoid: "アクチノイド",
+        otherNonmetal: "その他の非金属",
+        halogen: "ハロゲン",
+        nobleGas: "貴ガス（希ガス）",
+        unknown: "不明"
+    }
 };
 
