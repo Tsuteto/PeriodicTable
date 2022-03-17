@@ -1,0 +1,331 @@
+:root {
+    --font-default: nunito, "Arial Nova", sans-serif;
+    --font-jp: heisei-maru-gothic-std, sans-serif;
+    --font-kanji: source-han-sans-japanese, source-han-sans-traditional, sans-serif;
+    --text-color: #b1844a;
+
+    --bgcolor-alkali-metal: #ffbbaf;
+    --bgcolor-alkali-earth-metal: #ffd6a7;
+    --bgcolor-transition-metal: #c7e8fd;
+    --bgcolor-other-metal: #c5f3f1;
+    --bgcolor-lanthanoid: #ffcef4;
+    --bgcolor-actinoid: #ebcaff;
+    --bgcolor-metalloid: #a5eeca;
+
+    --bgcolor-other-nonmetal: #e4fa96;
+    --bgcolor-halogen: #a1f1ff;
+    --bgcolor-noble-gas: #cdddff;
+
+    --bgcolor-unknown: #ddd;
+
+    --table-lant:
+        "lant lant e57 e58 e59 e60 e61 e62 e63 e64 e65 e66 e67 e68 e69 e70 e71 ...";
+    --table-acti:
+        "acti acti e89 e90 e91 e92 e93 e94 e95 e96 e97 e98 e99 e100 e101 e102 e103 ...";
+}
+
+body {
+    background-image: repeating-linear-gradient(45deg, #eec58f 0 5vmin, #f0cea1 5vmin 10vmin);
+    padding: calc(4.5vh - 1.5vmin) calc(2.5vw - 1.5vmin) calc(2vh - 1.5vmin);
+    height: 100vh;
+}
+
+main {
+    padding: 1.5vmin;
+    background: #fff0dd;
+    border-radius: 3vmin;
+}
+
+header{
+    margin-bottom: 1vh;
+}
+
+.title-left,
+.title-right {
+    --deco-size: min(calc(9vw * 9 / 16), 9vh);
+    background:
+        url(../assets/pastel-star.svg),
+        radial-gradient(#eec58f 9%, transparent 10%);
+    background-size: calc(var(--deco-size)) calc(var(--deco-size) / 4), calc(var(--deco-size)) var(--deco-size);
+    background-repeat: repeat-x;
+    background-position:
+        14.2% 42%,
+        5% center;
+    width: calc(var(--deco-size) * 13 / 2);
+    margin-left: auto;
+    margin-right: auto;
+    mix-blend-mode: darken;
+    height: calc(var(--deco-size) / 2);
+    align-self: center;
+}
+
+.title-container {
+    background-color: #eec58fa0;
+    border-radius: 2vmin;
+    padding: 0.8vh 2vw;
+}
+
+#title {
+    text-align: center;
+    line-height: 1;
+    font-weight: 900;
+    font-size: min(calc(3vw * 9 / 16), 3vh);
+    padding-top: 0.5vh;
+}
+
+#table-main {
+    row-gap: 0.8vmin;
+    column-gap: 0.4vmin;
+    width: calc(100vw - 5vw);
+    margin-bottom: 4vh;
+}
+#table-main::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 73vh;
+    width: 95vw;
+    height: 4vh;
+
+    --deco-size: min(4vh, 2.5vw);
+    background: radial-gradient(#eec58f 20%, transparent 21%);
+    background-size: var(--deco-size) var(--deco-size);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    mix-blend-mode: darken;
+}
+
+#table-lanthanoid {
+    row-gap: 0.8vmin;
+    column-gap: 0.4vmin;
+    margin-bottom: 0.8vh;
+    width: calc(100vw - 5vw);
+}
+#table-actinoid {
+    row-gap: 0.8vmin;
+    column-gap: 0.4vmin;
+    width: calc(100vw - 5vw);
+}
+
+#legend-elements {
+    display: block;
+    left: 20vw;
+    top: 20vh;
+    font-family: var(--font-default);
+    font-size: min(calc(1.6vw * 9 / 16), 1.6vh);
+    font-weight: 900;
+    font-feature-settings: "palt" 1;
+    filter: none;
+}
+#legend-elements .title {
+    display: block;
+    font-size: min(calc(2vw * 9 / 16), 2vh);
+    width: fit-content;
+    margin-bottom: 1vh;
+    padding: 0.5vh 2.75vw 0.5vh 2.75vw;
+    background-color: #f8dfbf;
+    border-radius: 3vmin;
+}
+#legend-elements .title::after {
+    --deco-size: calc(min(calc(2vw * 9 / 16), 2vh) + 1vh);
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: var(--deco-size);
+    width: calc(var(--deco-size) * 12);
+    background-image: radial-gradient(#f8dfbf 0% 35%, transparent 35%);
+    background-repeat: repeat-x;
+    background-size: calc(var(--deco-size) * 2) calc(var(--deco-size) * 2);
+    background-position: 5% center;
+}
+
+#legend-elements .element {
+    display: none;
+}
+
+#legend-elements .legend-class {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    white-space: nowrap;
+    column-gap: 2vw;
+    row-gap: 1vh;
+}
+#legend-elements .legend-class .row {
+}
+#legend-elements .legend-class .color {
+    display: inline-block;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    width: 1.5vw;
+    height: 1em;
+    margin-right: 0.5vw;
+    vertical-align: -15%;
+}
+
+.label-group {
+    margin-bottom: 0.5vh;
+    text-align: center;
+    font-size: calc(min(1.5vh, 1vw));
+}
+.label-period {
+    text-align: center;
+    font-size: calc(min(1.5vh, 1vw));
+}
+
+article {
+    filter: drop-shadow(0.8vmin 0.8vmin 0 #cab8a020);
+}
+
+article.label {
+    border-radius: 2vmin;
+    background-color: var(--bg-color);
+    height: 4vh;
+    align-self: center;
+    font-size: min(1.5vh, 1vw);
+    font-weight: 900;
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    text-align: center;
+    justify-self: center;
+    width: 90%;
+}
+#table-lanthanoid article.label,
+#table-actinoid article.label {
+    justify-self: right;
+    width: 8em;
+}
+#table-lanthanoid article.label .label-lanthanoid,
+#table-actinoid article.label .label-actinoid {
+    position: relative;
+    width: 100%;
+}
+
+article.element {
+    border-radius: 0.5vmin;
+    font-weight: 900;
+    height: 8.3vh;
+}
+
+article.element .no {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3vmin;
+    width: 5vmin;
+    background-color: var(--bg-color);
+    mix-blend-mode: darken;
+    border-radius: 50%;
+    line-height: 3.5vmin;
+    text-align: center;
+    font-size: calc(min(2vh, 1.5vw));
+    font-weight: 900;
+}
+article.element .symbol {
+    position: absolute;
+    top: 2vmin;
+    left: 5%;
+    height: 6vmin;
+    width: 90%;
+    background-color: var(--bg-color);
+    mix-blend-mode: darken;
+    border-radius: 50%;
+    line-height: 5.5vmin;
+    text-align: center;
+    font-size: min(3.6vh, 2.4vw);
+    font-weight: 900;
+}
+article.element .name {
+    position: absolute;
+    bottom: 7%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.2vh, 0.8vw);
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+    transform-origin: left;
+    font-weight: 700;
+}
+article.element .name-jp {
+    font-family: var(--font-jp);
+    font-weight: bold;
+}
+article.element .name-kanji,
+article.element .name-jpkana {
+    display: none;
+}
+
+
+footer {
+    font-family: var(--font-default);
+    position: absolute;
+    bottom: 0.5vh;
+    right: 0.5vw;
+    font-size: 1.2vmin;
+    font-weight: 900;
+}
+
+/*********** JP ************/
+
+html[data-mode=jp] article.label,
+html[data-mode=jp] #legend-elements {
+    font-family: var(--font-jp);
+}
+html[data-mode=jp] #legend-elements .title {
+    padding-top: 0.75vh;
+    padding-bottom: 0.25vh;
+}
+html[data-mode=jp] #title {
+    text-indent: 2vw;
+    letter-spacing: 2vw;
+    font-family: var(--font-jp);
+}
+html[data-mode=jp] article.label .label-lanthanoid,
+html[data-mode=jp] article.label .label-actinoid {
+    position: relative;
+    font-feature-settings: "palt" 1;
+    white-space: normal;
+    width: 3em;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] #title,
+html[data-mode=kanji] #legend-elements {
+    font-family: var(--font-jp);
+}
+html[data-mode=kanji] #legend-elements .title {
+    padding-top: 0.75vh;
+    padding-bottom: 0.25vh;
+}
+html[data-mode=kanji] #title {
+    text-indent: 2vw;
+    letter-spacing: 2vw;
+}
+
+html[data-mode=kanji] article.label {
+    font-family: var(--font-kanji);
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    font-size: calc(min(2vh, 1.5vw));
+}
+
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: block;
+    top: 1.5vh;
+    font-family: var(--font-kanji);
+    font-weight: 900;
+    font-style: normal;
+    font-size: min(3vh, 2vw);
+}
+html[data-mode=kanji] article.element .symbol-kanji svg {
+    width: calc(min(2.8vh, 1.9vw));
+    height: calc(min(2.8vh, 1.9vw));
+    margin-top: 1.4vmin;
+}
+html[data-mode=kanji] article.element .symbol-kanji svg.font-sans.weight-h {
+    display: inline-block;
+}
