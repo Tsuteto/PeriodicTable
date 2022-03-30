@@ -1,0 +1,246 @@
+:root {
+    --font-default: "LCD 5x7";
+    --text-color: #2cf8ff;
+    --border-color: #00000080;
+
+    --bgcolor-alkali-metal: #ff6183;
+    --dotcolor-alkali-metal: #ff618320;
+    --bgcolor-alkali-earth-metal: #ffaf53;
+    --dotcolor-alkali-earth-metal: #ffaf5320;
+    --bgcolor-transition-metal: #96fafa;
+    --dotcolor-transition-metal: #96fafa20;
+    --bgcolor-other-metal: #67cfff;
+    --dotcolor-other-metal: #67cfff20;
+    --bgcolor-lanthanoid: #ff51d9;
+    --dotcolor-lanthanoid: #ff51d920;
+    --bgcolor-actinoid: #b647f7;
+    --dotcolor-actinoid: #b647f720;
+    --bgcolor-metalloid: #2dff96;
+    --dotcolor-metalloid: #2dff9620;
+
+    --bgcolor-other-nonmetal: #c6ff6a;
+    --dotcolor-other-nonmetal: #c6ff6a20;
+    --bgcolor-halogen: #fffb00;
+    --dotcolor-halogen: #fffb0020;
+    --bgcolor-noble-gas: #a4c1ff;
+    --dotcolor-noble-gas: #a4c1ff20;
+
+    --bgcolor-unknown: #ddddec;
+    --dotcolor-unknown: #dddddd20;
+
+    --column-gap: 0.2vw;
+    --row-gap: 0.4vh;
+    
+    --dot-pitch: min(0.35vh, 0.2vw);
+    --digit-height: calc(var(--dot-pitch) * 8);
+    --digit-width: calc(var(--dot-pitch) * 6);
+    --dot-interval: 2.5%;
+    --font-size: calc(var(--dot-pitch) * 1.1 * 7);
+    --dot-color: #00f7ff20;
+    --lcd-bgcolor: black;
+
+    --digit-bg:
+        linear-gradient(
+            transparent calc(100% / 8 * 1 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 1 - var(--dot-interval)) calc(100% / 8 * 1),
+            transparent calc(100% / 8 * 1) calc(100% / 8 * 2 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 2 - var(--dot-interval)) calc(100% / 8 * 2),
+            transparent calc(100% / 8 * 2) calc(100% / 8 * 3 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 3 - var(--dot-interval)) calc(100% / 8 * 3),
+            transparent calc(100% / 8 * 3) calc(100% / 8 * 4 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 4 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 4) calc(100% / 8 * 5 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 5 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 5) calc(100% / 8 * 6 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 6 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 6) calc(100% / 8 * 7 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 7 - var(--dot-interval))
+        ),
+        linear-gradient(90deg,
+            var(--dot-color) calc(100% / 6 * 1 - var(--dot-interval)),
+            transparent calc(100% / 6 * 1 - var(--dot-interval)) calc(100% / 6 * 1),
+            var(--dot-color) calc(100% / 6 * 1) calc(100% / 6 * 2 - var(--dot-interval)),
+            transparent calc(100% / 6 * 2 - var(--dot-interval)) calc(100% / 6 * 2),
+            var(--dot-color) calc(100% / 6 * 2) calc(100% / 6 * 3 - var(--dot-interval)),
+            transparent calc(100% / 6 * 3 - var(--dot-interval)) calc(100% / 6 * 3),
+            var(--dot-color) calc(100% / 6 * 3) calc(100% / 6 * 4 - var(--dot-interval)),
+            transparent calc(100% / 6 * 4 - var(--dot-interval)) calc(100% / 6 * 4),
+            var(--dot-color) calc(100% / 6 * 4) calc(100% / 6 * 5 - var(--dot-interval)),
+            transparent calc(100% / 6 * 5 - var(--dot-interval))
+        ),
+        var(--lcd-bgcolor);
+    --digit-bgsize: 100% calc(var(--dot-pitch) * 8), calc(var(--dot-pitch) * 6) 100%, 100% 100%;
+    --digit-bgsize-halved: 100% calc(var(--dot-pitch) * 4), calc(var(--dot-pitch) * 3) 100%, 100% 100%;
+    --digit-bgposition: 0.06vw 0;
+    --digit-bgposition-halved: 0.06vw 0;
+}
+
+body {
+    line-height: 1.03;
+    letter-spacing: calc(var(--dot-pitch) * 0.736);
+    text-shadow: 0 0 0.3vmin var(--text-color);
+    background: var(--lcd-bgcolor);
+}
+
+main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+header {
+    margin-top: 4vh;
+}
+
+#title {
+    text-align: center;
+    font-size: var(--font-size);
+    background: var(--digit-bg);
+    background-size: var(--digit-bgsize);
+    background-position: var(--digit-bgposition);
+}
+#title::before,
+#title::after {
+    content: " *** ";
+}
+
+section.tables {
+    margin-top: -1vh;
+}
+
+#table-main {
+    margin-bottom: 2vh;
+}
+
+article {
+    height: calc(var(--digit-height) * 3 + 1vh);
+    font-size: var(--font-size);
+    border-top: 0.15vmin solid var(--bg-color);
+    border-left: 0.15vmin solid var(--bg-color);
+    color: var(--bg-color);
+    text-shadow: 0 0 0.3vmin var(--bg-color);
+
+    --digit-bg:
+        linear-gradient(
+            transparent calc(100% / 8 * 1 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 1 - var(--dot-interval)) calc(100% / 8 * 1),
+            transparent calc(100% / 8 * 1) calc(100% / 8 * 2 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 2 - var(--dot-interval)) calc(100% / 8 * 2),
+            transparent calc(100% / 8 * 2) calc(100% / 8 * 3 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 3 - var(--dot-interval)) calc(100% / 8 * 3),
+            transparent calc(100% / 8 * 3) calc(100% / 8 * 4 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 4 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 4) calc(100% / 8 * 5 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 5 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 5) calc(100% / 8 * 6 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 6 - var(--dot-interval)) calc(100% / 8 * 4),
+            transparent calc(100% / 8 * 6) calc(100% / 8 * 7 - var(--dot-interval)),
+            var(--lcd-bgcolor) calc(100% / 8 * 7 - var(--dot-interval))
+        ),
+        linear-gradient(90deg,
+            var(--dot-color) calc(100% / 6 * 1 - var(--dot-interval)),
+            transparent calc(100% / 6 * 1 - var(--dot-interval)) calc(100% / 6 * 1),
+            var(--dot-color) calc(100% / 6 * 1) calc(100% / 6 * 2 - var(--dot-interval)),
+            transparent calc(100% / 6 * 2 - var(--dot-interval)) calc(100% / 6 * 2),
+            var(--dot-color) calc(100% / 6 * 2) calc(100% / 6 * 3 - var(--dot-interval)),
+            transparent calc(100% / 6 * 3 - var(--dot-interval)) calc(100% / 6 * 3),
+            var(--dot-color) calc(100% / 6 * 3) calc(100% / 6 * 4 - var(--dot-interval)),
+            transparent calc(100% / 6 * 4 - var(--dot-interval)) calc(100% / 6 * 4),
+            var(--dot-color) calc(100% / 6 * 4) calc(100% / 6 * 5 - var(--dot-interval)),
+            transparent calc(100% / 6 * 5 - var(--dot-interval))
+        ),
+        var(--lcd-bgcolor);
+}
+
+article.label {
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    left: calc(50% - var(--digit-width) * 2);
+    width: calc(var(--digit-width) * 4.03);
+    background: var(--digit-bg);
+    background-size: var(--digit-bgsize-halved);
+    background-position: var(--digit-bgposition-halved);
+    letter-spacing: calc(var(--dot-pitch) * 0.7314 / 2);
+    white-space: normal;
+    hyphens: auto;
+    text-align: left;
+    font-size: 0.5em;
+}
+
+article.element {
+}
+
+article.element .no {
+    position: absolute;
+    top: 0.5vh;
+    left: calc(50% - var(--digit-width) * 2);
+    width: calc(var(--digit-width) * 4);
+    background: var(--digit-bg);
+    background-size: var(--digit-bgsize);
+    background-position: var(--digit-bgposition);
+}
+article.element .symbol,
+article.element .name-zh {
+    position: absolute;
+    top: calc(var(--digit-height) + 0.5vh);
+    left: calc(50% - var(--digit-width) * 2);
+    width: calc(var(--digit-width) * 4);
+    background: var(--digit-bg);
+    background-size: var(--digit-bgsize);
+    background-position: var(--digit-bgposition);
+    text-align: left;
+}
+article.element .name {
+    position: absolute;
+    top: calc(var(--digit-height) * 2 + 0.5vh);
+    left: calc(50% - var(--digit-width) * 2);
+    width: calc(var(--digit-width) * 4.03);
+    height: calc(var(--digit-height) * 1);
+    text-align: left;
+    font-size: 0.5em;
+    background: var(--digit-bg);
+    background-size: var(--digit-bgsize-halved);
+    background-position: var(--digit-bgposition-halved);
+    letter-spacing: calc(var(--dot-pitch) * 0.7314 / 2);
+    white-space: normal;
+    hyphens: auto;
+}
+
+footer {
+    letter-spacing: 0;
+}
+
+.alkali-metal {
+    --dot-color: var(--dotcolor-alkali-metal);
+}
+.alkali-earth-metal {
+    --dot-color: var(--dotcolor-alkali-earth-metal);
+}
+.transition-metal {
+    --dot-color: var(--dotcolor-transition-metal);
+}
+.other-metal {
+    --dot-color: var(--dotcolor-other-metal);
+}
+.other-nonmetal {
+    --dot-color: var(--dotcolor-other-nonmetal);
+}
+.noble-gas {
+    --dot-color: var(--dotcolor-noble-gas);
+}
+.halogen {
+    --dot-color: var(--dotcolor-halogen);
+}
+.metalloid {
+    --dot-color: var(--dotcolor-metalloid);
+}
+.lanthanoid {
+    --dot-color: var(--dotcolor-lanthanoid);
+}
+.actinoid {
+    --dot-color: var(--dotcolor-actinoid);
+}
+.unknown {
+    --dot-color: var(--dotcolor-unknown);
+}
