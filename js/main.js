@@ -72,6 +72,12 @@ class PeriodicTable {
 
         addEventListener("resize", this.onWindowResized.bind(this));
         setTimeout(this.onWindowResized.bind(this), 1);
+
+        let curtain = document.getElementById("curtain");
+        curtain.className = "fadeout";
+        curtain.addEventListener("transitionend", () => {
+            curtain.className = "hidden";
+        })
     }
 
     initContext(context) {

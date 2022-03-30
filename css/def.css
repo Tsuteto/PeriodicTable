@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Noto+Sans+TC:wght@100;400;700;900&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Homemade+Apple&family=Noto+Sans+TC:wght@100;400;700;900&family=Pacifico&family=Press+Start+2P&family=Yomogi&display=swap');
 
 :root {
     --bgcolor-alkali-metal: #ffbbaf;
@@ -85,6 +85,7 @@ body {
     color: var(--text-color);
     line-height: 1;
     font-family: var(--font-default);
+    background-color: white;
 }
 
 svg {
@@ -92,6 +93,7 @@ svg {
 }
 
 main {
+    position: absolute;
     padding: 0 2vw 0;
     top: 0;
     bottom: 0;
@@ -298,6 +300,45 @@ footer {
 }
 .unknown {
     --bg-color: var(--bgcolor-unknown);
+}
+
+#curtain {
+    position: absolute;
+    display: grid;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+    background-color: inherit;
+    z-index: 1000;
+    font-size: min(calc(3.0vw * 9 / 16), 3.0vh);
+    transition: opacity 0.3s;
+}
+
+#curtain .loading {
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.5vmin solid var(--text-color);
+    border-radius: 50%;
+    animation: spinning 0.5s infinite ease-in-out;
+}
+  
+@keyframes spinning {
+    0% { 
+        transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+    } 50% { 
+        transform: scale(0, 1);
+        -webkit-transform: scale(0, 1);
+    }
+}
+#curtain.fadeout {
+    opacity: 0;
+}
+#curtain.hidden {
+    display: none;
 }
 
 /*********** JP ************/

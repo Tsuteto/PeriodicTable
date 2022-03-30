@@ -31,6 +31,7 @@ body {
 }
 
 main {
+    position: static;
     padding: 1.5vmin;
     background: #fff0dd;
     border-radius: 3vmin;

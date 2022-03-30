@@ -26,14 +26,16 @@ html * {
 }
 
 body {
-    background-color: #ffffff;
-    background: radial-gradient(circle, #00000000 70%, #00000010 85%, #00000020 100%);
+    background: radial-gradient(circle, #00000000 70%, #00000010 85%, #00000020 100%) white;
+    height: 100vh;
+}
+
+main {
     filter:
         drop-shadow(-0.0vmin -0.003vmin 0.003vmin var(--text-color))
         drop-shadow(0.007vmin 0.0vmin 0.007vmin var(--text-color))
         blur(0.025vmin)
         drop-shadow(0 0 0.008vmin var(--text-color));
-    height: 100vh;
 }
 
 header {

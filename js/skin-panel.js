@@ -29,8 +29,8 @@ class PeriodicTablePanel extends PeriodicTable {
             .filter(e => "sdp".indexOf(e.blockPyk) > -1)
             .map(e => this.createCell(e))
             .forEach(cell => mainTable.appendChild(cell));
-        mainTable.appendChild(this.createPyykkoExt("ex6", "block-f", "57-71"));
-        mainTable.appendChild(this.createPyykkoExt("ex7", "block-f", "89-103"));
+        mainTable.appendChild(this.createPyykkoExt("ex6", "block-f", "57-70"));
+        mainTable.appendChild(this.createPyykkoExt("ex7", "block-f", "89-102"));
 
         // Pyykko s/d/p
         let pyykkoExt1Table = document.getElementById("table-pyykko-sdp");
@@ -45,7 +45,7 @@ class PeriodicTablePanel extends PeriodicTable {
             pyykkoExt1Table.appendChild(this.createPeriod(p));
         }
         pyykkoExt1Table.appendChild(this.createPyykkoExt("ex8g", "block-g", "121-<br/>138"));
-        pyykkoExt1Table.appendChild(this.createPyykkoExt("ex8f", "block-f", "141-<br/>155"));
+        pyykkoExt1Table.appendChild(this.createPyykkoExt("ex8f", "block-f", "141-<br/>154"));
         pyykkoExt1Table.appendChild(this.createPyykkoExt("ex10", "block-g", "173-"));
 
         // Pyykko f
