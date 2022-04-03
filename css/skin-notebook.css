@@ -1,0 +1,367 @@
+/* 
+ * Paper texture by
+ * - Pixeden.com - Subtle Paper Tile Pattern Vol2 - http://www.pixeden.com/graphic-web-backgrounds/subtle-paper-tile-pattern-vol2
+ */
+ :root {
+    --rule-height: 2.8vh;
+    --rule-weight: 0.1vmin;
+    --rule-color: #0b5cc5b0;
+    --text-color: #4b4c50;
+
+    --bgcolor-alkali-metal: #ff0037a0;
+    --bgcolor-alkali-earth-metal: #ff8800a0;
+    --bgcolor-transition-metal: #00aeffa0;
+    --bgcolor-other-metal: #13ffffa0;
+    --bgcolor-lanthanoid: #ff2bd1a0;
+    --bgcolor-actinoid: #b12bffa0;
+    --bgcolor-metalloid: #00ff80a0;
+
+    --bgcolor-other-nonmetal: #9dff00a0;
+    --bgcolor-halogen: #fffb00a0;
+    --bgcolor-noble-gas: #0051ffa0;
+
+    --bgcolor-unknown: transparent;
+
+    --border-width: 0vmin;
+    --row-gap: calc(var(--rule-height) / 2);
+    --column-gap: var(--border-width);
+
+    --table-main:
+        "e1   .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... .... e2"
+        "e3   e4   .... .... .... .... .... .... .... .... .... .... .... e5   e6   e7   e8   e9   e10"
+        "e11  e12  .... .... .... .... .... .... .... .... .... .... .... e13  e14  e15  e16  e17  e18"
+        "e19  e20  e21  e22  e23  e24  e25  e26  e27  .... e28  e29  e30  e31  e32  e33  e34  e35  e36"
+        "e37  e38  e39  e40  e41  e42  e43  e44  e45  .... e46  e47  e48  e49  e50  e51  e52  e53  e54"
+        "e55  e56  lant e72  e73  e74  e75  e76  e77  .... e78  e79  e80  e81  e82  e83  e84  e85  e86"
+        "e87  e88  acti e104 e105 e106 e107 e108 e109 .... e110 e111 e112 e113 e114 e115 e116 e117 e118";
+    --table-lant:
+        "... lant e57 e58 e59 e60 e61 e62 e63 ... e64 e65 e66 e67 e68 e69 e70 e71 ...";
+    --table-acti:
+        "... acti e89 e90 e91 e92 e93 e94 e95 ... e96 e97 e98 e99 e100 e101 e102 e103 ...";
+
+}
+
+body {
+    background-image: url(../assets/paper.png);
+}
+
+main {
+    background: linear-gradient(90deg, transparent 48.5%, #00000030 49.85%, #00000060 50%, #00000030 50%, transparent 50.6%);
+    background-size: 100% 100%;
+}
+
+header {
+    display: block;
+}
+
+/*---- HEADER ---- */
+.title-side {
+    position: absolute;
+    top: 3vh;
+    width: 10vw;
+}
+.title-left {
+    left: 2vw;
+}
+.title-right {
+    right: 2vw;
+}
+.title-side .head-no {
+    display: flex;
+    align-items: end;
+    height: calc(var(--rule-height));
+    background: repeating-linear-gradient(90deg, var(--rule-color) 0% 70%, transparent 70% 100%);
+    background-size: 0.2vw var(--rule-weight);
+    background-position: left bottom;
+    background-repeat: repeat-x;
+}
+.title-side .head-date {
+    display: flex;
+    position: relative;
+    align-items: end;
+    height: calc(var(--rule-height));
+    padding-top: calc(var(--rule-height) - 1.2em);
+}
+.title-side .head-lbl {
+    line-height: 1.5;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1vh;
+    color: var(--rule-color);
+}
+.title-side .head-fld {
+    line-height: 1.2;
+    text-align: center;
+    font-size: calc(min(2.4vh, calc(2.4vw * 9 / 16)));
+    flex-grow: 1;
+    white-space: nowrap;
+}
+.title-side .head-date-fld:nth-child(2) {
+    width: 28%;
+}
+.title-side .head-date-fld:nth-child(3) {
+    width: 18%;
+}
+.title-side .head-date-fld:nth-child(4) {
+    width: 18%;
+}
+.title-side .head-date::after {
+    content: "";
+    position: absolute;
+    right: 15%;
+    top: 60%;
+    width: 50%;
+    height: 0.5vh;
+    --deco-size: min(4.6vh, calc(4.6vw * 9 / 16));
+    background: radial-gradient(var(--rule-color) 0.1vmin, transparent 0.1vmin var(--deco-size));
+    background-size: var(--deco-size) var(--deco-size);
+    background-position: 0% 50%;
+    background-repeat: repeat-x;
+}
+
+/*---- TITLE ---- */
+.title-container {
+    width: 100%;
+    margin-top: 8.5vh;
+    background:
+        linear-gradient(var(--rule-color) 5%, transparent 5% 95%, var(--rule-color) 95%),
+        linear-gradient(var(--rule-color) 5%, transparent 5% 95%, var(--rule-color) 95%);
+    background-position: 0% center, 100% center;
+    background-size: 48% 3.5vh, 48% 3.5vh;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 0.5vh;
+}
+
+#title {
+    font-size: 3vh;
+    width: 48%;
+}
+
+/*---- LEGEND ---- */
+#legend-elements {
+    display: block;
+    left: 15vw;
+    top: calc(var(--rule-height) * 2);
+    font-family: var(--font-default);
+    font-size: min(calc(1.6vw * 9 / 16), 1.6vh);
+    line-height: var(--rule-height);
+    font-feature-settings: "palt" 1;
+    border: 0.2vmin solid var(--text-color);
+    height: calc(var(--rule-height) * 5.25);
+    padding: 0 1vw;
+}
+#legend-elements .title {
+    display: block;
+    font-size: min(calc(2vw * 9 / 16), 2vh);
+}
+
+#legend-elements .element {
+    display: none;
+}
+
+#legend-elements .legend-class {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    white-space: nowrap;
+    column-gap: 2vw;
+}
+#legend-elements .legend-class .row {
+}
+#legend-elements .legend-class .color {
+    display: inline-block;
+    background-color: var(--bg-color);
+    width: 1.5vw;
+    height: 0.5em;
+    margin-right: 0.5vw;
+}
+#legend-elements .legend-class .row.unknown .color {
+    border: 0.15vmin dashed var(--text-color);
+}
+
+/*---- TABLE BG ---- */
+section.tables {
+    position: relative;
+    background:
+        linear-gradient(transparent 98%, var(--rule-color) 98%),
+        linear-gradient(transparent 98%, var(--rule-color) 98%),
+        linear-gradient(90deg, var(--rule-color) 48%, transparent 48% 52%, var(--rule-color) 52%);
+    background-position: 0% 0%, 100% 0%, center bottom;
+    background-repeat: repeat-y, repeat-y, no-repeat;
+    background-size:
+        48% var(--rule-height),
+        48% var(--rule-height),
+        100% calc(var(--rule-weight) * 2),
+        100% 100%;
+    padding-bottom: calc(var(--rule-height) * 2.5 - var(--rule-weight));
+
+}
+section.tables .guide {
+    position: absolute;
+    width: calc(96vw / 2 - 2%);
+    height: 0.3vh;
+    background-image: radial-gradient(var(--rule-color) 0 0.12vmin, transparent 0.12vmin 4vmin);
+    background-size: 4vmin 4vmin;
+    background-position: left center;
+    background-repeat: repeat-x;
+}
+section.tables .guide-top {
+    top: 0;
+}
+section.tables .guide-bottom {
+    bottom: calc(-0.3vh);
+}
+section.tables .guide-top-right,
+section.tables .guide-bottom-right {
+    left: 52%;
+}
+
+/*---- TABLES ---- */
+#table-main {
+    margin-bottom: calc(var(--rule-height) * 1.5 + var(--border-width));
+}
+#table-lanthanoid {
+    margin-bottom: calc(var(--rule-height) / 2 + var(--border-width));
+}
+#table-actinoid {
+}
+
+/*---- ELEMENTS ---- */
+article {
+    /*box-shadow: 0 0 0 var(--border-width) var(--text-color);*/
+    height: calc(var(--rule-height) * 2.5 - var(--border-width));
+}
+
+article.label {
+    background-color: transparent;
+    font-size: min(1.5vh, 0.8vw);
+}
+article.label .label-lanthanoid,
+article.label .label-actinoid {
+    top: calc(var(--rule-height) - var(--rule-weight) - 1em);
+    width: 100%;
+    left: 0%;
+    text-align: center;
+    font-feature-settings: "palt" 1;
+    border-bottom: 0.2vmin solid var(--text-color);
+}
+article.lanthanoid.label {
+}
+article.actinoid.label {
+    border-color: var(--bgcolor-actinoid);
+}
+
+article.element {
+}
+article.element .no-symbol {
+    width: max-content;
+    min-width: 60%;
+    margin: 1% auto 0;
+    text-align: center;
+    background: linear-gradient(90deg, var(--bg-color) 0 100%);
+    background-size: 100% 20%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+}
+article.element .no {
+    display: inline-block;
+    font-size: calc(min(2vh, 1.5vw));
+}
+article.element .symbol-std {
+    display: inline-block;
+    text-align: center;
+    font-size: calc(min(2.7vh, 1.8vw))
+}
+article.element .name {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    font-size: min(1.5vh, 1.0vw);
+    font-feature-settings: "palt" 1;
+    white-space: nowrap;
+    transform-origin: left;
+}
+article.element .name-jp {
+    letter-spacing: -0.05vmin;
+}
+article.element .name-zh,
+article.element .name-jpkana {
+    display: none;
+}
+
+article.element .mass {
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left: 5%;
+    width: 90%;
+    text-align: center;
+    transform-origin: center left;
+    font-size: min(1.2vh, 0.8vw);
+}
+
+footer {
+    font-family: var(--font-default);
+    position: absolute;
+    bottom: 1vh;
+    right: 0.5vw;
+    font-size: 1.2vmin;
+}
+
+html[data-mode=en] {
+    --font-default: 'Pacifico', cursive;
+}
+
+/*********** JP ************/
+html[data-mode=jp] {
+    --font-default: 'Pacifico', "AR Pマーカー体E", cursive;
+}
+html[data-mode=jp] .title-container {
+    padding-top: 0;
+}
+html[data-mode=jp] #title {
+    text-indent: 1vw;
+    letter-spacing: 1vw;
+    line-height: 3.5vh;
+}
+
+/*********** KANJI ************/
+html[data-mode=kanji] {
+    --font-default: 'Pacifico', "AR Pマーカー体E", cursive;
+}
+html[data-mode=kanji] .title-container {
+    padding-top: 0;
+}
+html[data-mode=kanji] #title {
+    letter-spacing: 1vh;
+    text-indent: 1vh;
+    line-height: 3.5vh;
+}
+
+html[data-mode=kanji] article.label {
+    font-family: source-han-sans-japanese, "Source Han Sans TC", source-han-sans-traditional, sans-serif;
+}
+html[data-mode=kanji] article.label .label-lanthanoid,
+html[data-mode=kanji] article.label .label-actinoid {
+    font-size: calc(min(2.4vh, 1.6vw));
+}
+
+html[data-mode=kanji] article.element .symbol-kanji {
+    display: inline-block;
+    font-size: calc(min(2.7vh, 1.8vw));
+
+    font-family: source-han-sans-japanese, "Source Han Sans TC", source-han-sans-traditional, sans-serif;
+    font-weight: 400;
+}
+html[data-mode=kanji] article.element .symbol-kanji svg.font-sans.weight-h {
+    display: inline-block;
+    width: calc(min(3.9vh, 2.3vw));
+    height: calc(min(3.9vh, 2.3vw));
+    margin-top: 0.2vmin;
+}
+
+html[data-mode=kanji] article.element .name-jp {
+    font-family: 'Pacifico', "AR Pマーカー体E", cursive;
+}
